@@ -1,0 +1,17 @@
+.scene {
+  // Settings
+  --base-unit: 15px;
+  --canvas-width: 10;
+  --canvas-height: 19;
+  --canvas-depth: 14;
+
+  // Calculate the canvas dimensions based on the base unit
+  --_canvas-width: calc(var(--canvas-width) * var(--base-unit));
+  --_canvas-height: calc(var(--canvas-height) * var(--base-unit));
+  --_canvas-depth: calc(var(--canvas-depth) * var(--base-unit));
+
+  width: var(--_canvas-width);
+  height: var(--_canvas-height);
+  perspective: 500px;
+  user-select: none;
+}
