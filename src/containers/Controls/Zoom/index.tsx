@@ -1,0 +1,72 @@
+"use client";
+
+import { SrOnly } from "@/components/SrOnly";
+import React, { useContext } from "react";
+import styles from "../Controls.module.scss";
+import { ZoomContext, MIN_ZOOM, MAX_ZOOM } from "@/providers/ZoomProvider";
+
+export const Zoom: React.FC = () => {
+  const { zoom, zoomIn, zoomOut, resetZoom, isDefaultZoom } = useContext(ZoomContext);
+  
+  return (
+      <div className={styles.group}>
+        <button 
+          className={styles.button} 
+          onClick={zoomIn}
+          disabled={zoom >= MAX_ZOOM}
+        >
+          <SrOnly>Zoom in</SrOnly>
+          <svg
+            className="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 256 256"
+            aria-hidden="true"
+          >
+            <path
+              xmlns="http://www.w3.org/2000/svg"
+              d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"
+            />
+          </svg>
+        </button>
+        <button 
+          className={styles.button}
+          onClick={zoomOut}
+          disabled={zoom <= MIN_ZOOM}
+        >
+          <SrOnly>Zoom out</SrOnly>
+          <svg
+            className="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 256 256"
+            aria-hidden="true"
+          >
+            <path
+              xmlns="http://www.w3.org/2000/svg"
+              d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z"
+            />
+          </svg>
+        </button>
+        <button 
+          className={styles.button}
+          onClick={resetZoom}
+          disabled={isDefaultZoom}
+        >
+          <SrOnly>Reset zoom</SrOnly>
+          <svg
+            className="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 256 256"
+            aria-hidden="true"
+          >
+            <path d="M244,56v48a12,12,0,0,1-12,12H184a12,12,0,1,1,0-24H201.1l-19-17.38c-.13-.12-.26-.24-.38-.37A76,76,0,1,0,127,204h1a75.53,75.53,0,0,0,52.15-20.72,12,12,0,0,1,16.49,17.45A99.45,99.45,0,0,1,128,228h-1.37A100,100,0,1,1,198.51,57.06L220,76.72V56a12,12,0,0,1,24,0Z" />
+          </svg>
+        </button>
+      </div>
+  );
+};

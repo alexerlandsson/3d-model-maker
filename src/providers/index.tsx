@@ -1,4 +1,5 @@
 import { RotationProvider } from './RotationProvider';
+import { ZoomProvider } from './ZoomProvider';
 
 interface ProvidersProps {
   children: React.ReactNode;
@@ -7,7 +8,9 @@ interface ProvidersProps {
 export const Providers: React.FC<ProvidersProps> = ({ children }) => {
   return (
     <RotationProvider>
-      {children}
+      <ZoomProvider>
+        {children}
+      </ZoomProvider>
     </RotationProvider>
   );
 };

@@ -1,0 +1,46 @@
+.controls {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background-color: var(--color-bg);
+  color: #fff;
+  border: none;
+  border-radius: none;
+  cursor: pointer;
+  font-size: 18px;
+
+  &:enabled {
+    &:hover {
+      background-color: var(--color-bg-hover);
+    }
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+
+    svg {
+      opacity: 0.37;
+    }
+  }
+
+  & + .button {
+    border-top: 1px solid var(--color-border);
+  }
+}

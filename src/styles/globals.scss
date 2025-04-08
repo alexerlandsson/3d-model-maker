@@ -81,51 +81,6 @@ body {
 
 /* OLD CSS */
 
-.editor__controls {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.editor__controls-group{
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--color-border);
-}
-
-.editor__controls-group button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  background-color: var(--color-bg);
-  color: #fff;
-  border: none;
-  border-radius: none;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-.editor__controls button + button {
-  border-top: 1px solid var(--color-border);
-}
-
-.editor__controls button:enabled:hover {
-  background-color: var(--color-bg-hover);
-}
-
-.editor__controls button[disabled] {
-  cursor: not-allowed;
-}
-
-.editor__controls button[disabled] .icon {
-  opacity: 0.37;
-}
-
 /* Rect */
 
 .rect {
