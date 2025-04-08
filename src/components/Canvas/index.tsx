@@ -1,5 +1,8 @@
-import React from "react";
+"use client";
+
+import React, { useContext } from "react";
 import styles from "./Canvas.module.scss";
+import { RotationContext } from "@/providers/RotationProvider";
 
 interface CanvasProps {
   showFrame?: boolean;
@@ -10,8 +13,15 @@ export const Canvas: React.FC<CanvasProps> = ({
   showFrame = true,
   children,
 }) => {
+  const { rotation } = useContext(RotationContext);
+  
+  // Apply rotation transform based on the values from the rotation sliders
+  const canvasStyle = {
+    transform: `rotateX(${rotation.y}deg) rotateY(${rotation.x}deg)`
+  };
+
   return (
-    <div className={styles.canvas}>
+    <div className={styles.canvas} style={canvasStyle}>
       {showFrame && (
         <>
           <div className={`${styles.face} ${styles.faceFront}`}></div>

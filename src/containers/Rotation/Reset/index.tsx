@@ -1,10 +1,20 @@
-import React from "react";
+"use client";
+
+import React, { useContext } from "react";
 import { SrOnly } from "@/components/SrOnly";
+import { RotationContext } from "@/providers/RotationProvider";
 
 export const Reset: React.FC = () => {
+  const { resetRotation, isDefaultRotation } = useContext(RotationContext);
+
   return (
     <div className="rotation-reset">
-      <button className="rotation-reset__button" id="btn-reset-view">
+      <button 
+        className="rotation-reset__button" 
+        id="btn-reset-view" 
+        onClick={resetRotation}
+        disabled={isDefaultRotation}
+      >
         <SrOnly>Reset view</SrOnly>
         <svg
           className="icon"
