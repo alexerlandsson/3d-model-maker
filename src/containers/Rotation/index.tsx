@@ -1,6 +1,6 @@
 "use client";
 
-import { InputRange } from "@/components/InputRange";
+import { InputRotation } from "@/components/InputRotation";
 import React from "react";
 import styles from "./Rotate.module.scss";
 import { Reset } from "./Reset";
@@ -12,7 +12,7 @@ export const Rotation: React.FC = () => {
         <label className={styles.label} htmlFor="rotation-slider-x">
           Rotate horizontally
         </label>
-        <InputRange
+        <InputRotation
           id="rotation-slider-x"
           orientation="horizontal"
           onChange={() => {}}
@@ -22,7 +22,7 @@ export const Rotation: React.FC = () => {
         <label className={styles.label} htmlFor="rotation-slider-y">
           Rotate vertically
         </label>
-        <InputRange
+        <InputRotation
           id="rotation-slider-y"
           orientation="vertical"
           onChange={() => {}}

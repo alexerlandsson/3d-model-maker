@@ -74,7 +74,6 @@
   // Orientation: Vertical
 
   &.vertical {
-    writing-mode: bt-lr; // Fix for Firefox
     writing-mode: vertical-lr;
     direction: rtl;
 
