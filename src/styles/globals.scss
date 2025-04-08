@@ -81,18 +81,6 @@ body {
 
 /* OLD CSS */
 
-.sr-only:not(:focus) {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border: 0;
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(0 0 99.9% 99.9%);
-  overflow: hidden;
-  white-space: nowrap;
-}
-
 .editor__controls {
   position: absolute;
   top: 16px;
@@ -214,36 +202,6 @@ body {
 .rect:hover .rect__face {
   border: 2px solid red;
   background-color: color-mix(in srgb, var(--_c) 80%, transparent);
-}
-
-/* Controls */
-
-.rotation {
-  display: flex;
-  background-color: var(--color-bg);
-  z-index: 1;
-}
-
-.rotation--x {
-  grid-area: controls-bottom;
-  border-top: 1px solid var(--color-border);
-}
-
-.rotation--x input {
-  width: 100%;
-}
-
-.rotation--y {
-  grid-area: controls-right;
-  border-left: 1px solid var(--color-border);
-}
-
-.rotation--y input {
-  align-self: stretch;
-  writing-mode: vertical-lr;
-  direction: rtl;
-  appearance: slider-vertical;
-  vertical-align: bottom;
 }
 
 /* Rotation Reset */

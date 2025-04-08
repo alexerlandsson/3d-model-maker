@@ -1,10 +1,9 @@
 "use client";
 
-import { InputRotation } from "@/components/InputRotation";
 import React, { useCallback, useContext } from "react";
-import styles from "./Rotate.module.scss";
 import { Reset } from "./Reset";
 import { RotationContext } from "@/providers/RotationProvider";
+import { Slider } from "./Slider";
 
 export const Rotation: React.FC = () => {
   const { rotation, setRotation } = useContext(RotationContext);
@@ -23,32 +22,20 @@ export const Rotation: React.FC = () => {
 
   return (
     <>
-      <div className={`${styles.rotate} ${styles.horizontal}`}>
-        <label className={styles.label} htmlFor="rotation-slider-x">
-          Rotate horizontally
-        </label>
-        <InputRotation
-          id="rotation-slider-x"
-          orientation="horizontal"
-          onChange={handleXRotation}
-          value={rotation.x}
-          min={-360}
-          max={360}
-        />
-      </div>
-      <div className={`${styles.rotate} ${styles.vertical}`}>
-        <label className={styles.label} htmlFor="rotation-slider-y">
-          Rotate vertically
-        </label>
-        <InputRotation
-          id="rotation-slider-y"
-          orientation="vertical"
-          onChange={handleYRotation}
-          value={rotation.y}
-          min={-360}
-          max={360}
-        />
-      </div>
+      <Slider
+        label="Rotate horizontally"
+        id="rotation-slider-x"
+        orientation="horizontal"
+        value={rotation.x}
+        onChange={handleXRotation}
+      />
+      <Slider
+        label="Rotate vertically"
+        id="rotation-slider-y"
+        orientation="vertical"
+        value={rotation.y}
+        onChange={handleYRotation}
+      />
       <Reset />
     </>
   );

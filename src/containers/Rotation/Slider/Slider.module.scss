@@ -1,6 +1,6 @@
-@use '../../styles/helpers' as *;
+@use '../../../styles/helpers' as *;
 
-.rotate {
+.slider {
   display: flex;
   background-color: var(--color-bg);
   z-index: 1;

@@ -11,11 +11,11 @@ export const Reset: React.FC = () => {
     <div className="rotation-reset">
       <button 
         className="rotation-reset__button" 
-        id="btn-reset-view" 
         onClick={resetRotation}
+        title="Reset rotation"
         disabled={isDefaultRotation}
       >
-        <SrOnly>Reset view</SrOnly>
+        <SrOnly>Reset rotation</SrOnly>
         <svg
           className="icon"
           xmlns="http://www.w3.org/2000/svg"

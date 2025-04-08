@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./InputRange.module.scss";
 import clsx from "clsx";
 
-type InputRotationOrientation = "vertical" | "horizontal";
+export type InputRotationOrientation = "vertical" | "horizontal";
 
 interface InputRotationProps extends React.InputHTMLAttributes<HTMLInputElement> {
   orientation?: InputRotationOrientation;
