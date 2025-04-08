@@ -1,0 +1,21 @@
+@use '../../styles/helpers' as *;
+
+.rotate {
+  display: flex;
+  background-color: var(--color-bg);
+  z-index: 1;
+
+  &.horizontal {
+    grid-area: controls-bottom;
+    border-top: 1px solid var(--color-border);
+  }
+  
+  &.vertical {
+    grid-area: controls-right;
+    border-left: 1px solid var(--color-border);
+  }
+}
+
+.label:not(:focus) {
+  @include sr-only;
+}

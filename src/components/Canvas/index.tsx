@@ -2,18 +2,16 @@ import React from "react";
 import styles from "./Canvas.module.scss";
 
 interface CanvasProps {
-  id?: string;
   showFrame?: boolean;
   children: React.ReactNode;
 }
 
 export const Canvas: React.FC<CanvasProps> = ({
-  id,
   showFrame = true,
   children,
 }) => {
   return (
-    <div className={styles.canvas} id={id}>
+    <div className={styles.canvas}>
       {showFrame && (
         <>
           <div className={`${styles.face} ${styles.faceFront}`}></div>

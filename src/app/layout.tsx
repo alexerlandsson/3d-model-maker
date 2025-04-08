@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import "./globals.scss";
 import { Root } from "@/components/Root";
 import { Header } from "@/components/Header";
+import "../styles/globals.scss";
+import "../styles/reset.scss";
 
 export const metadata: Metadata = {
   title: "3D Model Maker",

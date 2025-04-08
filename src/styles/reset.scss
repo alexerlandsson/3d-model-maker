@@ -1,0 +1,16 @@
+:where([aria-disabled="true" i], [disabled]) {
+  cursor: not-allowed;
+}
+
+:where(a img) {
+  border: 0;
+}
+
+:where(input, textarea, select) {
+  margin: 0;
+  font: inherit;
+}
+
+:where(input, textarea) {
+  font-size: 16px; // Disables zoom on focus in iOS
+}

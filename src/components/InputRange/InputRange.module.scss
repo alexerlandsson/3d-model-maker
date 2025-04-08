@@ -1,0 +1,107 @@
+.input {
+  --_range-thickness: 2px;
+  --_thumb-size: 20px;
+  --_color: var(--color-input-border);
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  width: 100%;
+  margin: 0;
+  padding-block: calc(var(--_thumb-size) * 0.5 - var(--_range-thickness) * 0.5 + 12px);
+  padding-inline: 16px;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  // WebKit
+
+  &::-webkit-slider-runnable-track {
+    background: var(--_color);
+    height: var(--_range-thickness);
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: var(--color-bg);
+    border: var(--_range-thickness) solid var(--_color);
+    width: var(--_thumb-size);
+    height: var(--_thumb-size);
+    margin-top: calc(var(--_thumb-size) * -0.5 + var(--_range-thickness) * 0.5);
+    border-radius: 50%;
+  }
+
+  // Firefox
+
+  &::-moz-range-track {
+    background: var(--_color);
+    height: var(--_range-thickness);
+  }
+
+  &::-moz-range-thumb {
+    background: var(--color-bg);
+    border: var(--_range-thickness) solid var(--_color);
+    width: var(--_thumb-size);
+    height: var(--_thumb-size);
+    border-radius: 50%;
+  }
+
+  // IE & Edge
+
+  &::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+    height: var(--_range-thickness);
+  }
+
+  &::-ms-fill-lower,
+  &::-ms-fill-upper {
+    background: var(--_color);
+  }
+
+  &::-ms-thumb {
+    background: var(--color-bg);
+    border: var(--_range-thickness) solid var(--_color);
+    width: var(--_thumb-size);
+    height: var(--_thumb-size);
+    border-radius: 50%;
+  }
+
+  // Orientation: Vertical
+
+  &.vertical {
+    writing-mode: bt-lr; // Fix for Firefox
+    writing-mode: vertical-lr;
+    direction: rtl;
+
+    // WebKit (Vertical)
+
+    &::-webkit-slider-runnable-track {
+      width: var(--_range-thickness);
+      height: 100%;
+    }
+
+    &::-webkit-slider-thumb {
+      margin-top: 0;
+      margin-left: calc(var(--_thumb-size) * -0.5 + var(--_range-thickness) * 0.5);
+    }
+
+    // Firefox (Vertical)
+
+    &::-moz-range-track {
+      width: var(--_range-thickness);
+      height: 100%;
+    }
+
+    // IE & Edge (Vertical)
+
+    &::-ms-track {
+      width: var(--_range-thickness);
+      height: 100%;
+    }
+  }
+}
