@@ -1,0 +1,115 @@
+@use '../../styles/helpers' as *;
+
+@property --w {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 1;
+}
+
+@property --h {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 1;
+}
+
+@property --d {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 1;
+}
+
+@property --x {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --y {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --z {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --c {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: rgba(0, 255, 0, 0.5);
+}
+
+.rect {
+  --_w: calc(var(--w, 1) * var(--base-unit)); /* Width */
+  --_h: calc(var(--h, 1) * var(--base-unit)); /* Height */
+  --_d: calc(var(--d, 1) * var(--base-unit)); /* Depth */
+  --_x: calc(var(--x, 0) * var(--base-unit)); /* Pos X */
+  --_y: calc(var(--y, 0) * var(--base-unit)); /* Pos Y */
+  --_z: calc(var(--z, 0) * var(--base-unit)); /* Pos Z */
+  --_c: var(--c); /* Color */
+
+  position: absolute;
+  transform-style: preserve-3d;
+  width: var(--_w);
+  height: var(--_h);
+  transform: translate3d(var(--_x), var(--_y), calc(var(--_canvas-depth) * 0.5 - var(--_d) * 0.5 - var(--_z)));
+
+  &:hover {
+    .face {
+      border: size(2) solid red;
+      background-color: color-mix(in srgb, var(--_c) 80%, transparent);
+    }
+  }
+}
+
+.face {
+  position: absolute;
+  background-color: var(--_c);
+
+  &.front,
+  &.back {
+    width: var(--_w);
+    height: var(--_h);
+  }
+
+  &.left,
+  &.right {
+    width: var(--_d);
+    height: var(--_h);
+    left: calc(var(--_w) * 0.5 - var(--_d) * 0.5);
+  }
+
+  &.top,
+  &.bottom {
+    width: var(--_w);
+    height: var(--_d);
+    top: calc(var(--_h) * 0.5 - var(--_d) * 0.5);
+  }
+
+  &.front {
+    transform: rotateY(0deg) translateZ(calc(var(--_d) * 0.5));
+  }
+  
+  &.back {
+    transform: rotateY(180deg) translateZ(calc(var(--_d) * 0.5));
+  }
+  
+  &.left {
+    transform: rotateY(-90deg) translateZ(calc(var(--_w) * 0.5));
+  }
+  
+  &.right {
+    transform: rotateY(90deg) translateZ(calc(var(--_w) * 0.5));
+  }
+  
+  &.top {
+    transform: rotateX(90deg) translateZ(calc(var(--_h) * 0.5));
+  }
+  
+  &.bottom {
+    transform: rotateX(-90deg) translateZ(calc(var(--_h) * 0.5));
+  }
+}
