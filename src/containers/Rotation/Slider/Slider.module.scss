@@ -1,18 +1,20 @@
 @use '../../../styles/helpers' as *;
 
 .slider {
+  --_slider-border: #{size(1)} solid var(--color-border);
+
   display: flex;
   background-color: var(--color-bg);
   z-index: 1;
 
   &.horizontal {
     grid-area: controls-bottom;
-    border-top: 1px solid var(--color-border);
+    border-top: var(--_slider-border);
   }
   
   &.vertical {
     grid-area: controls-right;
-    border-left: 1px solid var(--color-border);
+    border-left: var(--_slider-border);
   }
 }
 

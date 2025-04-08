@@ -3,14 +3,15 @@
 import React, { useContext } from "react";
 import { SrOnly } from "@/components/SrOnly";
 import { RotationContext } from "@/providers/RotationProvider";
+import styles from "./Reset.module.scss";
 
 export const Reset: React.FC = () => {
   const { resetRotation, isDefaultRotation } = useContext(RotationContext);
 
   return (
-    <div className="rotation-reset">
+    <div className={styles.reset}>
       <button 
-        className="rotation-reset__button" 
+        className={styles.button}
         onClick={resetRotation}
         title="Reset rotation"
         disabled={isDefaultRotation}

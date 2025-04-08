@@ -1,3 +1,5 @@
+@use '../../styles/helpers' as *;
+
 .canvas {
   position: relative;
   width: 100%;
@@ -8,7 +10,7 @@
 
 .face {
   position: absolute;
-  border: 2px solid var(--color-border-canvas);
+  border: size(2) solid var(--color-border-canvas);
   pointer-events: none;
 }
 

@@ -1,0 +1,38 @@
+@use '../../../styles/helpers' as *;
+
+.reset {
+  --_reset-border: #{size(1)} solid var(--color-border);
+
+  grid-area: controls-reset;
+  background-color: var(--color-bg);
+  border-top: var(--_reset-border);
+  border-left: var(--_reset-border);
+  z-index: 1;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  color: var(--color-text);
+  border: none;
+  border-radius: none;
+  font-size: var(--font-size-large);
+  cursor: pointer;
+
+  &:enabled {
+    &:hover {
+      background-color: var(--color-bg-hover);
+    }
+  }
+
+  &[disabled] {
+    opacity: 0.37;
+    cursor: not-allowed;
+  }
+}

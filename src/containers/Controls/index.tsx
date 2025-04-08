@@ -5,10 +5,10 @@ import { Zoom } from "./Zoom";
 
 export const Controls: React.FC = () => {
   return (
-    <div className={styles.controls}>
+    <div className={styles.controls} role="toolbar" aria-label="Editor controls">
       <Zoom />
       {false && (
-        <div className="editor__controls-group">
+        <div className="editor__controls-group" role="group" aria-label="Canvas settings">
           <button id="btn-canvas-settings" disabled>
             <SrOnly>Canvas settings</SrOnly>
             <svg

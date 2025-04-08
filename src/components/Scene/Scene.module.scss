@@ -1,6 +1,8 @@
+@use '../../styles/helpers' as *;
+
 .scene {
   // Settings
-  --base-unit: 15px;
+  --base-unit: #{size(15)};
   --canvas-width: 10;
   --canvas-height: 19;
   --canvas-depth: 14;
@@ -12,6 +14,6 @@
 
   width: var(--_canvas-width);
   height: var(--_canvas-height);
-  perspective: 500px;
+  perspective: size(500);
   user-select: none;
 }

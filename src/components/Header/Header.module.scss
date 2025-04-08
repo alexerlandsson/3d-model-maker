@@ -1,17 +1,19 @@
+@use '../../styles/helpers' as *;
+
 .header {
   grid-area: header;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
-  padding: 16px;
+  border-bottom: size(1) solid var(--color-border);
+  padding: size(16);
   z-index: 1;
 }
 
 .title {
   margin: 0;
-  font-size: 1rem;
+  font-size: var(--font-size-base);
   color: var(--color-text);
   font-family: monospace;
 }

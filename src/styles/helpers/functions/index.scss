@@ -1,0 +1,5 @@
+/// Forwards all breakpoint files. To access them in other files,
+/// import this file using:
+/// @use '[path_to_helpers]/styles/helpers/functions' as *;
+
+@forward "_size";

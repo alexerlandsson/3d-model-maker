@@ -50,6 +50,10 @@
   --color-border: #424242;
   --color-border-canvas: #0000ff;
   --color-input-border: #fff;
+
+  --font-size-small: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-large: 1.125rem;
 }
 
 *,
@@ -76,8 +80,6 @@ body {
   height: 1em;
   fill: currentColor;
 }
-
-
 
 /* OLD CSS */
 
@@ -157,41 +159,6 @@ body {
 .rect:hover .rect__face {
   border: 2px solid red;
   background-color: color-mix(in srgb, var(--_c) 80%, transparent);
-}
-
-/* Rotation Reset */
-
-.rotation-reset {
-  grid-area: empty;
-  background-color: var(--color-bg);
-  border-top: 1px solid var(--color-border);
-  border-left: 1px solid var(--color-border);
-  z-index: 1;
-}
-
-.rotation-reset__button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  background-color: transparent;
-  color: #fff;
-  border: none;
-  border-radius: none;
-  font-size: 1.125rem;
-  cursor: pointer;
-}
-
-.rotation-reset__button:enabled:hover {
-  background-color: var(--color-bg-hover);
-}
-
-.rotation-reset__button[disabled] {
-  opacity: 0.37;
-  cursor: not-allowed;
 }
 
 /* Crossy Road Chicken 3D Model */
@@ -332,16 +299,7 @@ body {
   --c: #cc625e;
 }
 
-/* Crossy Road Chicken Colors */
-
-/*
-.rect--body .rect__face,
-.rect--back .rect__face,
-.rect--tail .rect__face,
-.rect--wing .rect__face {
-  background-color: #fff;
-}
-*/
+/* Crossy Road Chicken Eyes */
 
 .rect--body .rect__face--left::before,
 .rect--body .rect__face--right::before {
@@ -359,138 +317,4 @@ body {
 
 .rect--body .rect__face--right::before {
   left: calc(var(--base-unit) * 2);
-}
-
-/*
-.rect--beak .rect__face,
-.rect--leg .rect__face,
-.rect--foot .rect__face,
-.rect--toe .rect__face {
-  background-color: #d8724f;
-}
-
-.rect--wattle .rect__face,
-.rect--comb .rect__face {
-  background-color: #cc625e;
-}
-*/
-
-
-
-
-
-
-
-
-
-/* Base styles for both orientations */
-input[type="range"] {
-  --_range-thickness: 2px;
-  --_thumb-size: 20px;
-
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: transparent;
-  margin: 0;
-  padding-block: calc(var(--_thumb-size) * 0.5 - var(--_range-thickness) * 0.5 + 12px);
-  padding-inline: 16px;
-  cursor: grab;
-}
-
-input[type="range"]:active {
-  cursor: grabbing;
-}
-
-/* ============================= */
-/* Horizontal Slider Styles      */
-/* ============================= */
-
-/* WebKit */
-input[type="range"]::-webkit-slider-runnable-track {
-  background: #fff;
-  height: var(--_range-thickness);
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  background: var(--color-bg);
-  border: var(--_range-thickness) solid #fff;
-  width: var(--_thumb-size);
-  height: var(--_thumb-size);
-  margin-top: calc(var(--_thumb-size) * -0.5 + var(--_range-thickness) * 0.5);
-  border-radius: 50%;
-}
-
-/* Firefox */
-input[type="range"]::-moz-range-track {
-  background: #fff;
-  height: var(--_range-thickness);
-}
-
-input[type="range"]::-moz-range-thumb {
-  background: var(--color-bg);
-  border: var(--_range-thickness) solid #fff;
-  width: var(--_thumb-size);
-  height: var(--_thumb-size);
-  border-radius: 50%;
-}
-
-/* IE/Edge */
-
-input[type="range"]::-ms-track {
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
-  height: var(--_range-thickness);
-}
-
-input[type="range"]::-ms-fill-lower,
-input[type="range"]::-ms-fill-upper {
-  background: #fff;
-}
-
-input[type="range"]::-ms-thumb {
-  background: var(--color-bg);
-  border: var(--_range-thickness) solid #fff;
-  width: var(--_thumb-size);
-  height: var(--_thumb-size);
-  border-radius: 50%;
-}
-
-/* ============================= */
-/* Vertical Slider Styles        */
-/* ============================= */
-
-/* Assume vertical sliders have an attribute: orient="vertical" */
-/* Adjust dimensions as needed (here height is set as an example) */
-input[type="range"][orient="vertical"] {
-  /* For Firefox */
-  writing-mode: bt-lr;
-  /* For WebKit */
-  
-  width: auto;
-}
-
-/* Vertical WebKit */
-input[type="range"][orient="vertical"]::-webkit-slider-runnable-track {
-  width: var(--_range-thickness);
-  height: 100%;
-}
-input[type="range"][orient="vertical"]::-webkit-slider-thumb {
-  /* Reset vertical margin and center horizontally */
-  margin-top: 0;
-  margin-left: calc(var(--_thumb-size) * -0.5 + var(--_range-thickness) * 0.5);
-}
-
-/* Vertical Firefox */
-input[type="range"][orient="vertical"]::-moz-range-track {
-  width: var(--_range-thickness);
-  height: 100%;
-}
-
-/* Vertical IE/Edge */
-input[type="range"][orient="vertical"]::-ms-track {
-  width: var(--_range-thickness);
-  height: 100%;
 }

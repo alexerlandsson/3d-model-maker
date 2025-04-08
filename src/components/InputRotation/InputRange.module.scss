@@ -1,6 +1,8 @@
+@use '../../styles/helpers' as *;
+
 .input {
-  --_range-thickness: 2px;
-  --_thumb-size: 20px;
+  --_range-thickness: #{size(2)};
+  --_thumb-size: #{size(20)};
   --_color: var(--color-input-border);
 
   -webkit-appearance: none;
@@ -9,8 +11,8 @@
   background: transparent;
   width: 100%;
   margin: 0;
-  padding-block: calc(var(--_thumb-size) * 0.5 - var(--_range-thickness) * 0.5 + 12px);
-  padding-inline: 16px;
+  padding-block: calc(var(--_thumb-size) * 0.5 - var(--_range-thickness) * 0.5 + #{size(12)});
+  padding-inline: size(16);
   cursor: grab;
 
   &:active {

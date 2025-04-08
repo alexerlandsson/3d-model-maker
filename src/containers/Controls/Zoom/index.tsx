@@ -9,10 +9,11 @@ export const Zoom: React.FC = () => {
   const { zoom, zoomIn, zoomOut, resetZoom, isDefaultZoom } = useContext(ZoomContext);
   
   return (
-      <div className={styles.group}>
+      <div className={styles.group} role="group" aria-label="Zoom controls">
         <button 
           className={styles.button} 
           onClick={zoomIn}
+          title="Zoom in"
           disabled={zoom >= MAX_ZOOM}
         >
           <SrOnly>Zoom in</SrOnly>
@@ -33,6 +34,7 @@ export const Zoom: React.FC = () => {
         <button 
           className={styles.button}
           onClick={zoomOut}
+          title="Zoom out"
           disabled={zoom <= MIN_ZOOM}
         >
           <SrOnly>Zoom out</SrOnly>
@@ -53,6 +55,7 @@ export const Zoom: React.FC = () => {
         <button 
           className={styles.button}
           onClick={resetZoom}
+          title="Reset zoom"
           disabled={isDefaultZoom}
         >
           <SrOnly>Reset zoom</SrOnly>
