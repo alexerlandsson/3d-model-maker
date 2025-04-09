@@ -4,14 +4,14 @@ import { Chicken } from "./chicken";
 import { EditorControls } from "@/containers/EditorControls";
 import { SceneContainer } from "@/containers/SceneContainer";
 import { CanvasContainer } from "@/containers/CanvasContainer";
-import { Root } from "@/components/Root";
 import { Model } from "@/containers/Model";
 import { HeaderContainer } from "@/containers/Header";
 import { RectControls } from "@/containers/RectControls";
+import { RootContainer } from "@/containers/RootContainer";
 
 export default function Home() {
   return (
-    <Root>
+    <RootContainer>
       <HeaderContainer />
       <Editor>
         <SceneContainer>
@@ -26,6 +26,6 @@ export default function Home() {
         <RectControls />
       </Editor>
       <Rotation />
-    </Root>
+    </RootContainer>
   );
 }

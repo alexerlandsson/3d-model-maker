@@ -12,7 +12,11 @@ interface Rectangle extends RectProps{
 
 interface ModelContextType {
   rectangles: Rectangle[];
+  activeRectId: string | null;
+  setActiveRectId: (id: string | null) => void;
   addRectangle: () => void;
+  updateRectangle: (id: string, props: Partial<RectProps>) => void;
+  deleteRectangle: (id: string) => void;
   isMaxRectangles: boolean;
 }
 
@@ -28,9 +32,12 @@ export const useModel = (): ModelContextType => {
 
 export const ModelProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [rectangles, setRectangles] = useState<Rectangle[]>([]);
+  const [activeRectId, setActiveRectId] = useState<string | null>(null);
   
   // Check if we've reached the maximum number of rectangles
   const isMaxRectangles = rectangles.length >= MAX_RECTANGLES;
+
+  // Document-level click event is now handled through the Root component ref in page.tsx
 
   const addRectangle = () => {
     // Prevent adding more rectangles if we've reached the maximum
@@ -50,8 +57,33 @@ export const ModelProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     setRectangles(prev => [...prev, newRectangle]);
   };
 
+  const updateRectangle = (id: string, props: Partial<RectProps>) => {
+    setRectangles(prev => 
+      prev.map(rect => 
+        rect.id === id ? { ...rect, ...props } : rect
+      )
+    );
+  };
+
+  const deleteRectangle = (id: string) => {
+    setRectangles(prev => prev.filter(rect => rect.id !== id));
+    if (activeRectId === id) {
+      setActiveRectId(null);
+    }
+  };
+
   return (
-    <ModelContext.Provider value={{ rectangles, addRectangle, isMaxRectangles }}>
+    <ModelContext.Provider 
+      value={{ 
+        rectangles, 
+        activeRectId, 
+        setActiveRectId,
+        addRectangle, 
+        updateRectangle,
+        deleteRectangle,
+        isMaxRectangles 
+      }}
+    >
       {children}
     </ModelContext.Provider>
   );
