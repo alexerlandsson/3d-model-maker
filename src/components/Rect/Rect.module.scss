@@ -41,6 +41,11 @@
   inherits: false;
   initial-value: rgba(0, 255, 0, 0.5);
 }
+@property --z-index {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
 
 .rect {
   --_w: calc(var(--w, 1) * var(--base-unit)); /* Width */
@@ -50,6 +55,7 @@
   --_y: calc(var(--y, 0) * var(--base-unit)); /* Pos Y */
   --_z: calc(var(--z, 0) * var(--base-unit)); /* Pos Z */
   --_c: var(--c); /* Color */
+  --_z-index: var(--z-index); /* Z-index */
 
   position: absolute;
   transform-style: preserve-3d;
@@ -60,6 +66,7 @@
     var(--_y),
     calc(var(--_canvas-depth) * 0.5 - var(--_d) * 0.5 - var(--_z))
   );
+  z-index: var(--_z-index);
 
   &:hover {
     .face {

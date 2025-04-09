@@ -19,6 +19,7 @@ export const Model: React.FC = () => {
           posY={rect.posY}
           posZ={rect.posZ}
           color={rect.color}
+          zIndex={rect.zIndex}
           isActive={rect.id === activeRectId}
           onClick={() => setActiveRectId(rect.id)}
         />

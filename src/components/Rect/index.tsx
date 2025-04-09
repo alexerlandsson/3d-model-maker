@@ -10,6 +10,7 @@ export interface RectProps {
   posY?: number;
   posZ?: number;
   color?: string;
+  zIndex?: number;
   isActive?: boolean;
   onClick?: () => void;
 }
@@ -22,6 +23,7 @@ export const Rect: React.FC<RectProps> = ({
   posY,
   posZ,
   color,
+  zIndex,
   isActive,
   onClick,
 }) => {
@@ -39,6 +41,7 @@ export const Rect: React.FC<RectProps> = ({
           "--y": posY,
           "--z": posZ,
           "--c": color,
+          "--z-index": zIndex,
         } as React.CSSProperties
       }
       role={onClick ? "button" : undefined}

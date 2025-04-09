@@ -16,7 +16,7 @@ export const RectControls: React.FC = () => {
 
   const handleChange = (field: string, value: string | number) => {
     // Convert string inputs to numbers for numeric fields
-    const numericFields = ["width", "height", "depth", "posX", "posY", "posZ"];
+    const numericFields = ["width", "height", "depth", "posX", "posY", "posZ", "zIndex"];
     if (numericFields.includes(field)) {
       const numValue = typeof value === 'string' ? parseFloat(value) : value;
       updateRectangle(activeRectId, { [field]: numValue });
@@ -100,6 +100,16 @@ export const RectControls: React.FC = () => {
           type="color" 
           value={activeRect.color || "#000000"} 
           onChange={(e) => handleChange("color", e.target.value)}
+        />
+      </div>
+      <div>
+        <label>Z-Index:</label>
+        <input 
+          type="number" 
+          min="-100" 
+          max="100"
+          value={activeRect.zIndex || 0} 
+          onChange={(e) => handleChange("zIndex", e.target.value)}
         />
       </div>
       <hr />

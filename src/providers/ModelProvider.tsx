@@ -44,14 +44,11 @@ export const ModelProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     if (isMaxRectangles) return;
     
     const newRectangle: Rectangle = {
-      id: `R${(rectangles.length + 1).toString().padStart(3, '0')}`,
-      width: 1,
-      height: 1,
-      depth: 1,
-      posX: 0,
-      posY: 0,
-      posZ: 0,
-      color: `#${Math.floor(Math.random() * 16777215).toString(16)}`
+      id: `${Date.now()}-${Math.random().toString(36).slice(2)}`,
+      width: 1, height: 1, depth: 1,
+      posX: 0, posY: 0, posZ: 0,
+      zIndex: 0,
+      color: '#' + Math.floor(Math.random()*16777215).toString(16)
     };
     
     setRectangles(prev => [...prev, newRectangle]);
