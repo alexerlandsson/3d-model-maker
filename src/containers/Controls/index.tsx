@@ -1,4 +1,3 @@
-import { SrOnly } from "@/components/SrOnly";
 import React from "react";
 import styles from "./Controls.module.scss";
 import { Zoom } from "./Zoom";
@@ -10,7 +9,7 @@ export const Controls: React.FC = () => {
       {false && (
         <div className="editor__controls-group" role="group" aria-label="Canvas settings">
           <button id="btn-canvas-settings" disabled>
-            <SrOnly>Canvas settings</SrOnly>
+            <span className="sr-only">Canvas settings</span>
             <svg
               className="icon"
               xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +25,7 @@ export const Controls: React.FC = () => {
             </svg>
           </button>
           <button id="btn-toggle-canvas">
-            <SrOnly>Toggle canvas outline</SrOnly>
+            <span className="sr-only">Toggle canvas outline</span>
             <svg
               className="icon"
               xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +38,7 @@ export const Controls: React.FC = () => {
             </svg>
           </button>
           <button id="btn-set-editor-bg" disabled>
-            <SrOnly>Set editor background color</SrOnly>
+            <span className="sr-only">Set editor background color</span>
             <svg
               className="icon"
               xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +54,7 @@ export const Controls: React.FC = () => {
             </svg>
           </button>
           <button id="btn-toggle-list-view" disabled>
-            <SrOnly>Toggle list view</SrOnly>
+            <span className="sr-only">Toggle list view</span>
             <svg
               className="icon"
               xmlns="http://www.w3.org/2000/svg"

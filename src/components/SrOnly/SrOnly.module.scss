@@ -1,5 +1,0 @@
-@use '../../styles/helpers' as *;
-
-.srOnly:not(:focus) {
-  @include sr-only;
-}

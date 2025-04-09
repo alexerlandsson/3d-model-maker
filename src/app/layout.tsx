@@ -3,6 +3,7 @@ import { Root } from "@/components/Root";
 import { Header } from "@/components/Header";
 import "../styles/globals.scss";
 import "../styles/reset.scss";
+import "../styles/utils.scss";
 
 export const metadata: Metadata = {
   title: "3D Model Maker",

@@ -1,43 +1,43 @@
-@use '../../styles/helpers' as *;
+@use "../../styles/helpers" as *;
 
 @property --w {
-  syntax: '<number>';
+  syntax: "<number>";
   inherits: false;
   initial-value: 1;
 }
 
 @property --h {
-  syntax: '<number>';
+  syntax: "<number>";
   inherits: false;
   initial-value: 1;
 }
 
 @property --d {
-  syntax: '<number>';
+  syntax: "<number>";
   inherits: false;
   initial-value: 1;
 }
 
 @property --x {
-  syntax: '<number>';
+  syntax: "<number>";
   inherits: false;
   initial-value: 0;
 }
 
 @property --y {
-  syntax: '<number>';
+  syntax: "<number>";
   inherits: false;
   initial-value: 0;
 }
 
 @property --z {
-  syntax: '<number>';
+  syntax: "<number>";
   inherits: false;
   initial-value: 0;
 }
 
 @property --c {
-  syntax: '<color>';
+  syntax: "<color>";
   inherits: false;
   initial-value: rgba(0, 255, 0, 0.5);
 }
@@ -55,7 +55,11 @@
   transform-style: preserve-3d;
   width: var(--_w);
   height: var(--_h);
-  transform: translate3d(var(--_x), var(--_y), calc(var(--_canvas-depth) * 0.5 - var(--_d) * 0.5 - var(--_z)));
+  transform: translate3d(
+    var(--_x),
+    var(--_y),
+    calc(var(--_canvas-depth) * 0.5 - var(--_d) * 0.5 - var(--_z))
+  );
 
   &:hover {
     .face {
@@ -68,48 +72,48 @@
 .face {
   position: absolute;
   background-color: var(--_c);
+}
 
-  &.front,
-  &.back {
-    width: var(--_w);
-    height: var(--_h);
-  }
+.faceFront,
+.faceBack {
+  width: var(--_w);
+  height: var(--_h);
+}
 
-  &.left,
-  &.right {
-    width: var(--_d);
-    height: var(--_h);
-    left: calc(var(--_w) * 0.5 - var(--_d) * 0.5);
-  }
+.faceLeft,
+.faceRight {
+  width: var(--_d);
+  height: var(--_h);
+  left: calc(var(--_w) * 0.5 - var(--_d) * 0.5);
+}
 
-  &.top,
-  &.bottom {
-    width: var(--_w);
-    height: var(--_d);
-    top: calc(var(--_h) * 0.5 - var(--_d) * 0.5);
-  }
+.faceTop,
+.faceBottom {
+  width: var(--_w);
+  height: var(--_d);
+  top: calc(var(--_h) * 0.5 - var(--_d) * 0.5);
+}
 
-  &.front {
-    transform: rotateY(0deg) translateZ(calc(var(--_d) * 0.5));
-  }
-  
-  &.back {
-    transform: rotateY(180deg) translateZ(calc(var(--_d) * 0.5));
-  }
-  
-  &.left {
-    transform: rotateY(-90deg) translateZ(calc(var(--_w) * 0.5));
-  }
-  
-  &.right {
-    transform: rotateY(90deg) translateZ(calc(var(--_w) * 0.5));
-  }
-  
-  &.top {
-    transform: rotateX(90deg) translateZ(calc(var(--_h) * 0.5));
-  }
-  
-  &.bottom {
-    transform: rotateX(-90deg) translateZ(calc(var(--_h) * 0.5));
-  }
+.faceFront {
+  transform: rotateY(0deg) translateZ(calc(var(--_d) * 0.5));
+}
+
+.faceBack {
+  transform: rotateY(180deg) translateZ(calc(var(--_d) * 0.5));
+}
+
+.faceLeft {
+  transform: rotateY(-90deg) translateZ(calc(var(--_w) * 0.5));
+}
+
+.faceRight {
+  transform: rotateY(90deg) translateZ(calc(var(--_w) * 0.5));
+}
+
+.faceTop {
+  transform: rotateX(90deg) translateZ(calc(var(--_h) * 0.5));
+}
+
+.faceBottom {
+  transform: rotateX(-90deg) translateZ(calc(var(--_h) * 0.5));
 }

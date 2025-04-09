@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Canvas.module.scss";
+import clsx from "clsx";
 
 interface CanvasProps {
   showFrame?: boolean;
@@ -16,12 +17,12 @@ export const Canvas: React.FC<CanvasProps> = ({
     <div className={styles.canvas} style={style}>
       {showFrame && (
         <>
-          <div className={`${styles.face} ${styles.faceFront}`}></div>
-          <div className={`${styles.face} ${styles.faceBack}`}></div>
-          <div className={`${styles.face} ${styles.faceTop}`}></div>
-          <div className={`${styles.face} ${styles.faceBottom}`}></div>
-          <div className={`${styles.face} ${styles.faceLeft}`}></div>
-          <div className={`${styles.face} ${styles.faceRight}`}></div>
+          <div className={clsx(styles.face, styles.faceFront)}></div>
+          <div className={clsx(styles.face, styles.faceBack)}></div>
+          <div className={clsx(styles.face, styles.faceTop)}></div>
+          <div className={clsx(styles.face, styles.faceBottom)}></div>
+          <div className={clsx(styles.face, styles.faceLeft)}></div>
+          <div className={clsx(styles.face, styles.faceRight)}></div>
         </>
       )}
       {children}

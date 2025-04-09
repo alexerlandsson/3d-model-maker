@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Rect.module.scss";
+import clsx from "clsx";
 
 interface RectProps {
   width?: number;
@@ -35,12 +36,12 @@ export const Rect: React.FC<RectProps> = ({
         } as React.CSSProperties
       }
     >
-      <div className={`${styles.face} ${styles.front}`}></div>
-      <div className={`${styles.face} ${styles.back}`}></div>
-      <div className={`${styles.face} ${styles.top}`}></div>
-      <div className={`${styles.face} ${styles.bottom}`}></div>
-      <div className={`${styles.face} ${styles.left}`}></div>
-      <div className={`${styles.face} ${styles.right}`}></div>
+      <div className={clsx(styles.face, styles.faceFront)}></div>
+      <div className={clsx(styles.face, styles.faceBack)}></div>
+      <div className={clsx(styles.face, styles.faceTop)}></div>
+      <div className={clsx(styles.face, styles.faceBottom)}></div>
+      <div className={clsx(styles.face, styles.faceLeft)}></div>
+      <div className={clsx(styles.face, styles.faceRight)}></div>
     </div>
   );
 };

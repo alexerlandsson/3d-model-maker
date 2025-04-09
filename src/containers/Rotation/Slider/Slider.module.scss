@@ -17,7 +17,3 @@
     border-left: var(--_slider-border);
   }
 }
-
-.label:not(:focus) {
-  @include sr-only;
-}

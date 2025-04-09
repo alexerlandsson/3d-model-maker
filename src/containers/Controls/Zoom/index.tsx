@@ -1,6 +1,5 @@
 "use client";
 
-import { SrOnly } from "@/components/SrOnly";
 import React, { useContext } from "react";
 import styles from "../Controls.module.scss";
 import { ZoomContext, MIN_ZOOM, MAX_ZOOM } from "@/providers/ZoomProvider";
@@ -16,7 +15,7 @@ export const Zoom: React.FC = () => {
           title="Zoom in"
           disabled={zoom >= MAX_ZOOM}
         >
-          <SrOnly>Zoom in</SrOnly>
+          <span className="sr-only">Zoom in</span>
           <svg
             className="icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +36,7 @@ export const Zoom: React.FC = () => {
           title="Zoom out"
           disabled={zoom <= MIN_ZOOM}
         >
-          <SrOnly>Zoom out</SrOnly>
+          <span className="sr-only">Zoom out</span>
           <svg
             className="icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +57,7 @@ export const Zoom: React.FC = () => {
           title="Reset zoom"
           disabled={isDefaultZoom}
         >
-          <SrOnly>Reset zoom</SrOnly>
+          <span className="sr-only">Reset zoom</span>
           <svg
             className="icon"
             xmlns="http://www.w3.org/2000/svg"

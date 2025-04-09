@@ -32,7 +32,7 @@ export const Slider: React.FC<SliderProps> = ({
         [styles.vertical]: orientation === "vertical",
       })}
     >
-      <label className={styles.label} id={`${id}-label`} htmlFor={id}>
+      <label className="sr-only" id={`${id}-label`} htmlFor={id}>
         {label}
       </label>
       <InputRotation

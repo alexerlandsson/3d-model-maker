@@ -1,0 +1,12 @@
+@use './helpers' as *;
+
+.sr-only:not(:focus) {
+  @include sr-only;
+}
+
+.icon {
+  display: block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}

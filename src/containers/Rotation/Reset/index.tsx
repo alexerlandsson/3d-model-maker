@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useContext } from "react";
-import { SrOnly } from "@/components/SrOnly";
 import { RotationContext } from "@/providers/RotationProvider";
 import styles from "./Reset.module.scss";
 
@@ -16,7 +15,7 @@ export const Reset: React.FC = () => {
         title="Reset rotation"
         disabled={isDefaultRotation}
       >
-        <SrOnly>Reset rotation</SrOnly>
+        <span className="sr-only">Reset rotation</span>
         <svg
           className="icon"
           xmlns="http://www.w3.org/2000/svg"
