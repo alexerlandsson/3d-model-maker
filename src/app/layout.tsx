@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Root } from "@/components/Root";
-import { Header } from "@/components/Header";
+import { Providers } from "@/providers";
 import "../styles/globals.scss";
 import "../styles/reset.scss";
 import "../styles/utils.scss";
@@ -18,12 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Root>
-          <Header title="3D Model Maker">
-            <button>Add rectangle</button>
-          </Header>
-          {children}
-        </Root>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

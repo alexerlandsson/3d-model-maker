@@ -2,7 +2,7 @@
 
 Simple tool to create pixelated 3D models buuilt using HTML and CSS.
 
-![Screenshot](assets/screenshots/readme.png)
+![Screenshot](assets/screenshot.png)
 
 ## Getting Started
 

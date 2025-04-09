@@ -3,7 +3,7 @@
 .reset {
   --_reset-border: #{size(1)} solid var(--color-border);
 
-  grid-area: controls-reset;
+  grid-area: slider-reset;
   background-color: var(--color-bg);
   border-top: var(--_reset-border);
   border-left: var(--_reset-border);

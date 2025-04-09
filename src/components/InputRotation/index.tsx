@@ -16,8 +16,7 @@ export const InputRotation: React.FC<InputRotationProps> = ({
     <input
       type="range"
       className={clsx(styles.input, {
-        [styles.horizontal]: orientation === "horizontal",
-        [styles.vertical]: orientation === "vertical",
+        [styles.inputVertical]: orientation === "vertical",
       })}
       {...props}
     />

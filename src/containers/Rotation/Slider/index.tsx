@@ -23,13 +23,16 @@ export const Slider: React.FC<SliderProps> = ({
   orientation,
   onChange,
 }) => {
+  // Degrees of rotation in each direction
+  const rotation = 360;
+
   return (
     <div
       role="group"
       aria-labelledby={`${id}-label`}
       className={clsx(styles.slider, {
-        [styles.horizontal]: orientation === "horizontal",
-        [styles.vertical]: orientation === "vertical",
+        [styles.sliderHorizontal]: orientation === "horizontal",
+        [styles.sliderVertical]: orientation === "vertical",
       })}
     >
       <label className="sr-only" id={`${id}-label`} htmlFor={id}>
@@ -40,8 +43,8 @@ export const Slider: React.FC<SliderProps> = ({
         orientation={orientation}
         onChange={onChange}
         value={value}
-        min={-360}
-        max={360}
+        min={rotation * -1}
+        max={rotation}
       />
     </div>
   );
