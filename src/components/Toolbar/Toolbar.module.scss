@@ -1,10 +1,16 @@
 @use '../../styles/helpers' as *;
 
 .toolbar {
+  --_toolbar-offset: #{size(16)};
+
   position: absolute;
-  bottom: size(16);
-  left: size(16);
+  bottom: var(--_toolbar-offset);
+  left: var(--_toolbar-offset);
+  background-color: var(--color-bg);
   border: size(1) solid var(--color-border);
   padding: size(16);
   color: var(--color-text);
+  font-size: var(--font-size-small);
+  width: size(200);
+  max-width: calc(100% - var(--_toolbar-offset) * 2);
 }

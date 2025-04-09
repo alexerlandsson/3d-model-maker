@@ -39,7 +39,7 @@
 @property --c {
   syntax: "<color>";
   inherits: false;
-  initial-value: rgba(0, 255, 0, 0.5);
+  initial-value: #ccc;
 }
 @property --z-index {
   syntax: "<number>";
@@ -73,6 +73,10 @@
       border: size(2) solid red;
       background-color: color-mix(in srgb, var(--_c) 80%, transparent);
     }
+  }
+
+  &[role="button"] {
+    cursor: pointer;
   }
 }
 

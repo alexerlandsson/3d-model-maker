@@ -48,7 +48,7 @@ export const ModelProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       width: 1, height: 1, depth: 1,
       posX: 0, posY: 0, posZ: 0,
       zIndex: 0,
-      color: '#' + Math.floor(Math.random()*16777215).toString(16)
+      color: '#cccccc'
     };
     
     setRectangles(prev => [...prev, newRectangle]);
