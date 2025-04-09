@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Rect.module.scss";
 import clsx from "clsx";
 
-interface RectProps {
+export interface RectProps {
   width?: number;
   height?: number;
   depth?: number;

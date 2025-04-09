@@ -1,25 +1,24 @@
 import { Editor } from "@/components/Editor";
-import { Rect } from "@/components/Rect";
 import { Rotation } from "@/containers/Rotation";
 import { Chicken } from "./chicken";
 import { Controls } from "@/containers/Controls";
 import { SceneContainer } from "@/containers/SceneContainer";
 import { CanvasContainer } from "@/containers/CanvasContainer";
 import { Root } from "@/components/Root";
-import { Header } from "@/components/Header";
+import { Model } from "@/containers/Model";
+import { HeaderContainer } from "@/containers/Header";
 
 export default function Home() {
   return (
     <Root>
-      <Header title="3D Model Maker">
-        <button>Add rectangle</button>
-      </Header>
+      <HeaderContainer />
       <Editor>
         <SceneContainer>
           <CanvasContainer>
-            {/* <Model (container) /> */}
-            <Rect />
-            <Chicken />
+            <Model />
+            {false && (
+              <Chicken />
+            )}
           </CanvasContainer>
         </SceneContainer>
         <Controls />

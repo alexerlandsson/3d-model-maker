@@ -3,9 +3,9 @@
 .scene {
   // Settings
   --base-unit: #{size(15)};
-  --canvas-width: 10;
-  --canvas-height: 19;
-  --canvas-depth: 14;
+  --canvas-width: 20;
+  --canvas-height: 20;
+  --canvas-depth: 20;
 
   // Calculate the canvas dimensions based on the base unit
   --_canvas-width: calc(var(--canvas-width) * var(--base-unit));
