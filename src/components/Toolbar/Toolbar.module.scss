@@ -1,0 +1,9 @@
+@use '../../styles/helpers' as *;
+
+.toolbar {
+  position: absolute;
+  bottom: size(16);
+  left: size(16);
+  background-color: white;
+  padding: size(16);
+}

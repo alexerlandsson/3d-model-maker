@@ -10,6 +10,8 @@ export interface RectProps {
   posY?: number;
   posZ?: number;
   color?: string;
+  isActive?: boolean;
+  onClick?: () => void;
 }
 
 export const Rect: React.FC<RectProps> = ({
@@ -20,10 +22,14 @@ export const Rect: React.FC<RectProps> = ({
   posY,
   posZ,
   color,
+  isActive,
+  onClick,
 }) => {
   return (
     <div
-      className={styles.rect}
+      className={clsx(styles.rect, {
+        [styles.rectActive]: isActive,
+      })}
       style={
         {
           "--w": width,
@@ -35,6 +41,9 @@ export const Rect: React.FC<RectProps> = ({
           "--c": color,
         } as React.CSSProperties
       }
+      role={onClick ? "button" : undefined}
+      aria-label={onClick ? "Edit rectangle" : undefined}
+      onClick={onClick}
     >
       <div className={clsx(styles.face, styles.faceFront)}></div>
       <div className={clsx(styles.face, styles.faceBack)}></div>

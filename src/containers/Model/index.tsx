@@ -7,8 +7,6 @@ import { useModel } from '@/providers/ModelProvider';
 export const Model: React.FC = () => {
   const { rectangles } = useModel();
 
-  console.log(rectangles);
-
   return (
     <>
       {rectangles.map(rect => (

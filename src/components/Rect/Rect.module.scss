@@ -69,6 +69,12 @@
   }
 }
 
+.rectActive {
+  .face {
+    border: size(2) solid pink;
+  }
+}
+
 .face {
   position: absolute;
   background-color: var(--_c);
