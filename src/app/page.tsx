@@ -6,12 +6,11 @@ import { SceneContainer } from "@/containers/SceneContainer";
 import { CanvasContainer } from "@/containers/CanvasContainer";
 import { Model } from "@/containers/Model";
 import { HeaderContainer } from "@/containers/Header";
-import { RectControls } from "@/containers/RectControls";
-import { RootContainer } from "@/containers/RootContainer";
+import { Root } from "@/components/Root";
 
 export default function Home() {
   return (
-    <RootContainer>
+    <Root>
       <HeaderContainer />
       <Editor>
         <SceneContainer>
@@ -23,9 +22,8 @@ export default function Home() {
           </CanvasContainer>
         </SceneContainer>
         <EditorControls />
-        <RectControls />
       </Editor>
       <Rotation />
-    </RootContainer>
+    </Root>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useContext } from "react";
-import styles from "../Controls.module.scss";
+import styles from "../EditorControls.module.scss";
 import { ZoomContext, MIN_ZOOM, MAX_ZOOM } from "@/providers/ZoomProvider";
 
 export const Zoom: React.FC = () => {

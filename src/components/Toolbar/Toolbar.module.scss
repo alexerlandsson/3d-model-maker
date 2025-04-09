@@ -4,6 +4,7 @@
   position: absolute;
   bottom: size(16);
   left: size(16);
-  background-color: white;
+  border: size(1) solid var(--color-border);
   padding: size(16);
+  color: var(--color-text);
 }

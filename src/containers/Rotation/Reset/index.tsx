@@ -14,6 +14,7 @@ export const Reset: React.FC = () => {
         onClick={resetRotation}
         title="Reset rotation"
         disabled={isDefaultRotation}
+        id="rotation-reset-btn"
       >
         <span className="sr-only">Reset rotation</span>
         <svg
