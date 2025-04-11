@@ -48,14 +48,14 @@
 }
 
 .rect {
-  --_w: calc(var(--w, 1) * var(--base-unit)); /* Width */
-  --_h: calc(var(--h, 1) * var(--base-unit)); /* Height */
-  --_d: calc(var(--d, 1) * var(--base-unit)); /* Depth */
-  --_x: calc(var(--x, 0) * var(--base-unit)); /* Pos X */
-  --_y: calc(var(--y, 0) * var(--base-unit)); /* Pos Y */
-  --_z: calc(var(--z, 0) * var(--base-unit)); /* Pos Z */
-  --_c: var(--c); /* Color */
-  --_z-index: var(--z-index); /* Z-index */
+  --_w: calc(var(--w, 1) * var(--base-unit)); // Width
+  --_h: calc(var(--h, 1) * var(--base-unit)); // Height
+  --_d: calc(var(--d, 1) * var(--base-unit)); // Depth
+  --_x: calc(var(--x, 0) * var(--base-unit)); // Pos X
+  --_y: calc(var(--y, 0) * var(--base-unit)); // Pos Y
+  --_z: calc(var(--z, 0) * var(--base-unit)); // Pos Z
+  --_c: var(--c); // Color
+  --_z-index: var(--z-index); // Z-index
 
   position: absolute;
   transform-style: preserve-3d;
