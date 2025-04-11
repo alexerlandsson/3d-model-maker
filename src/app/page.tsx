@@ -1,6 +1,5 @@
 import { Editor } from "@/components/Editor";
 import { Rotation } from "@/containers/Rotation";
-import { Chicken } from "./chicken";
 import { EditorControls } from "@/containers/EditorControls";
 import { SceneContainer } from "@/containers/SceneContainer";
 import { CanvasContainer } from "@/containers/CanvasContainer";
@@ -16,9 +15,6 @@ export default function Home() {
         <SceneContainer>
           <CanvasContainer>
             <Model />
-            {false && (
-              <Chicken />
-            )}
           </CanvasContainer>
         </SceneContainer>
         <EditorControls />
