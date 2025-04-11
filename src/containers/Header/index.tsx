@@ -9,9 +9,13 @@ export const HeaderContainer: React.FC = () => {
 
   return (
     <Header title="3D Model Maker">
-      <button 
+      <button
         onClick={addRectangle}
-        title={isMaxRectangles ? "Maximum limit of 99 rectangles reached" : "Add rectangle"}
+        title={
+          isMaxRectangles
+            ? "Maximum limit of 99 rectangles reached"
+            : "Add rectangle"
+        }
         disabled={isMaxRectangles}
       >
         Add rectangle

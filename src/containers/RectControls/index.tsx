@@ -1,10 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Toolbar } from "@/components/Toolbar";
+import { Dialog } from "@/components/Dialog";
 import { useModel } from "@/providers/ModelProvider";
 
 export const RectControls: React.FC = () => {
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const {
     rectangles,
     activeRectId,
@@ -40,16 +42,28 @@ export const RectControls: React.FC = () => {
   };
 
   const handleDelete = () => {
+    setIsDeleteDialogOpen(true);
+  };
+
+  const confirmDelete = () => {
     deleteRectangle(activeRectId);
+    setIsDeleteDialogOpen(false);
   };
 
   return (
-    <Toolbar ariaLabel="Active rectangle settings">
-      <div>Settings</div>
-      <button onClick={() => setActiveRectId(null)}>Close toolbar</button>
-      <hr />
-      <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', alignItems: 'center', gap: '8px 12px' }}>
-
+    <>
+      <Toolbar ariaLabel="Active rectangle settings">
+        <div>Settings</div>
+        <button onClick={() => setActiveRectId(null)}>Close toolbar</button>
+        <hr />
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "auto 1fr",
+            alignItems: "center",
+            gap: "8px 12px",
+          }}
+        >
           <label>Width</label>
           <input
             type="number"
@@ -92,7 +106,7 @@ export const RectControls: React.FC = () => {
             value={activeRect.posY || 0}
             onChange={(e) => handleChange("posY", e.target.value)}
           />
-        
+
           <label>Pos (Z)</label>
           <input
             type="number"
@@ -101,7 +115,7 @@ export const RectControls: React.FC = () => {
             value={activeRect.posZ || 0}
             onChange={(e) => handleChange("posZ", e.target.value)}
           />
-        
+
           <label>Color</label>
           <input
             type="color"
@@ -109,7 +123,7 @@ export const RectControls: React.FC = () => {
             onChange={(e) => handleChange("color", e.target.value)}
             style={{ width: "100%" }}
           />
-        
+
           <label>Layer</label>
           <input
             type="number"
@@ -118,9 +132,21 @@ export const RectControls: React.FC = () => {
             value={activeRect.zIndex || 0}
             onChange={(e) => handleChange("zIndex", e.target.value)}
           />
-      </div>
-      <hr />
-      <button onClick={handleDelete}>Delete rectangle</button>
-    </Toolbar>
+        </div>
+        <hr />
+        <button onClick={handleDelete}>Delete rectangle</button>
+      </Toolbar>
+
+      <Dialog
+        isOpen={isDeleteDialogOpen}
+        title="Confirm deletion"
+        id="delete-confirmation"
+        onClose={() => setIsDeleteDialogOpen(false)}
+        onConfirm={confirmDelete}
+      >
+        Are you sure you want to delete this rectangle? This action can nog be
+        undone.
+      </Dialog>
+    </>
   );
 };

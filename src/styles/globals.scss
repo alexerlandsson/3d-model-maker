@@ -2,9 +2,11 @@
   --color-bg: #121212;
   --color-bg-hover: #1a1a1a;
   --color-text: #fff;
+  --color-text-secondary: #ababab;
   --color-border: #424242;
   --color-border-canvas: #3366ff;
   --color-input-border: #fff;
+  --color-overlay: rgba(0, 0, 0, 0.5);
 
   --font-size-small: 0.875rem;
   --font-size-base: 1rem;
@@ -25,5 +27,5 @@ body {
 body {
   margin: 0;
   background-color: var(--color-bg);
-  font-family: monospace;
+  font-family: var(--font-cousine, monospace), monospace;
 }
