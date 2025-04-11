@@ -2,6 +2,7 @@
 
 import React, { useContext } from "react";
 import { RotationContext } from "@/providers/RotationProvider";
+import { useCanvas } from "@/providers/CanvasProvider";
 import { Canvas } from "@/components/Canvas";
 
 interface CanvasProps {
@@ -10,6 +11,7 @@ interface CanvasProps {
 
 export const CanvasContainer: React.FC<CanvasProps> = ({ children }) => {
   const { rotation } = useContext(RotationContext);
+  const { showFrame } = useCanvas();
 
   // Apply rotation transform based on the values from the rotation sliders
   const canvasStyle = {
@@ -17,7 +19,7 @@ export const CanvasContainer: React.FC<CanvasProps> = ({ children }) => {
   };
 
   return (
-    <Canvas showFrame={true} style={canvasStyle}>
+    <Canvas showFrame={showFrame} style={canvasStyle}>
       {children}
     </Canvas>
   );

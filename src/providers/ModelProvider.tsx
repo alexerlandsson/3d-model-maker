@@ -52,6 +52,8 @@ export const ModelProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     };
     
     setRectangles(prev => [...prev, newRectangle]);
+    // Automatically set the newly created rectangle as active
+    setActiveRectId(newRectangle.id);
   };
 
   const updateRectangle = (id: string, props: Partial<RectProps>) => {
