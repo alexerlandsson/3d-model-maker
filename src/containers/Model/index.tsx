@@ -5,9 +5,7 @@ import { Rect } from '@/components/Rect';
 import { useModel } from '@/providers/ModelProvider';
 
 export const Model: React.FC = () => {
-  const { rectangles } = useModel();
-
-  console.log(rectangles);
+  const { rectangles, activeRectId, setActiveRectId } = useModel();
 
   return (
     <>
@@ -21,6 +19,9 @@ export const Model: React.FC = () => {
           posY={rect.posY}
           posZ={rect.posZ}
           color={rect.color}
+          zIndex={rect.zIndex}
+          isActive={rect.id === activeRectId}
+          onClick={() => setActiveRectId(rect.id)}
         />
       ))}
     </>

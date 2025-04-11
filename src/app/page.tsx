@@ -1,12 +1,11 @@
 import { Editor } from "@/components/Editor";
 import { Rotation } from "@/containers/Rotation";
-import { Chicken } from "./chicken";
-import { Controls } from "@/containers/Controls";
+import { EditorControls } from "@/containers/EditorControls";
 import { SceneContainer } from "@/containers/SceneContainer";
 import { CanvasContainer } from "@/containers/CanvasContainer";
-import { Root } from "@/components/Root";
 import { Model } from "@/containers/Model";
 import { HeaderContainer } from "@/containers/Header";
+import { Root } from "@/components/Root";
 
 export default function Home() {
   return (
@@ -16,12 +15,9 @@ export default function Home() {
         <SceneContainer>
           <CanvasContainer>
             <Model />
-            {false && (
-              <Chicken />
-            )}
           </CanvasContainer>
         </SceneContainer>
-        <Controls />
+        <EditorControls />
       </Editor>
       <Rotation />
     </Root>

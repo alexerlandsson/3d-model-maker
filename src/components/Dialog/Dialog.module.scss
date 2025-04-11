@@ -1,0 +1,40 @@
+@use "../../styles/helpers" as *;
+
+.dialog {
+  position: fixed;
+  gap: size(24);
+  border: 1px solid var(--color-border);
+  width: size(500);
+  max-width: calc(100% - size(32));
+  max-height: 85vh;
+  padding: size(24);
+  overflow: hidden;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+
+  &::backdrop {
+    background-color: var(--color-overlay);
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: size(24);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-large);
+}
+
+.body {
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: size(4);
+}

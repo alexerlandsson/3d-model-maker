@@ -1,6 +1,7 @@
 import { RotationProvider } from './RotationProvider';
 import { ZoomProvider } from './ZoomProvider';
 import { ModelProvider } from './ModelProvider';
+import { CanvasProvider } from './CanvasProvider';
 
 interface ProvidersProps {
   children: React.ReactNode;
@@ -11,7 +12,9 @@ export const Providers: React.FC<ProvidersProps> = ({ children }) => {
     <RotationProvider>
       <ZoomProvider>
         <ModelProvider>
-          {children}
+          <CanvasProvider>
+            {children}
+          </CanvasProvider>
         </ModelProvider>
       </ZoomProvider>
     </RotationProvider>

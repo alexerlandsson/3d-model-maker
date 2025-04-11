@@ -1,11 +1,13 @@
 import React from "react";
-import styles from "./Controls.module.scss";
+import styles from "./EditorControls.module.scss";
 import { Zoom } from "./Zoom";
+import { Canvas } from "./Canvas";
 
-export const Controls: React.FC = () => {
+export const EditorControls: React.FC = () => {
   return (
-    <div className={styles.controls} role="toolbar" aria-label="Editor controls">
+    <div className={styles.controls} role="toolbar" aria-label="Editor controls" id="editor-controls">
       <Zoom />
+      <Canvas />
       {false && (
         <div className="editor__controls-group" role="group" aria-label="Canvas settings">
           <button id="btn-canvas-settings" disabled>
@@ -22,19 +24,6 @@ export const Controls: React.FC = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 d="M240.49,144.49l-32,32a12,12,0,0,1-17-17L203,148H125L77,196H96a12,12,0,0,1,0,24H48a12,12,0,0,1-12-12V160a12,12,0,0,1,24,0v19l48-48V53L96.49,64.49a12,12,0,1,1-17-17l32-32a12,12,0,0,1,17,0l32,32a12,12,0,0,1-17,17L132,53v71h71l-11.52-11.51a12,12,0,0,1,17-17l32,32A12,12,0,0,1,240.49,144.49Z"
               />
-            </svg>
-          </button>
-          <button id="btn-toggle-canvas">
-            <span className="sr-only">Toggle canvas outline</span>
-            <svg
-              className="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              viewBox="0 0 256 256"
-              aria-hidden="true"
-            >
-              <path d="M225.6,62.64l-88-48.17a19.91,19.91,0,0,0-19.2,0l-88,48.17A20,20,0,0,0,20,80.19v95.62a20,20,0,0,0,10.4,17.55l88,48.17a19.89,19.89,0,0,0,19.2,0l88-48.17A20,20,0,0,0,236,175.81V80.19A20,20,0,0,0,225.6,62.64ZM128,36.57,200,76,128,115.4,56,76ZM44,96.79l72,39.4v76.67L44,173.44Zm96,116.07V136.19l72-39.4v76.65Z" />
             </svg>
           </button>
           <button id="btn-set-editor-bg" disabled>
