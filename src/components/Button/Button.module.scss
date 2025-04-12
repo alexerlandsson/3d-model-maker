@@ -20,6 +20,7 @@
   color: var(--_button-text);
   border: 1px solid var(--_button-border-color);
   transition: transform 200ms ease;
+  user-select: none;
   cursor: pointer;
 
   &:enabled {

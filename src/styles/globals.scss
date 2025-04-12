@@ -41,6 +41,11 @@ body {
   font-family: var(--font-family);
 }
 
+::selection {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+}
+
 // Focus
 
 // Remove inner focus on buttons in Firefox
