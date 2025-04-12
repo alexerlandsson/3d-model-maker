@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Toolbar } from "@/components/Toolbar";
 import { Dialog } from "@/components/Dialog";
 import { useModel } from "@/providers/ModelProvider";
+import { Button } from "@/components/Button";
 
 export const RectControls: React.FC = () => {
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
@@ -52,16 +53,18 @@ export const RectControls: React.FC = () => {
 
   return (
     <>
-      <Toolbar ariaLabel="Active rectangle settings">
-        <div>Settings</div>
-        <button onClick={() => setActiveRectId(null)}>Close toolbar</button>
-        <hr />
+      <Toolbar
+        title="Settings"
+        ariaLabel="Active rectangle settings"
+        onClose={() => setActiveRectId(null)}
+      >
         <div
           style={{
             display: "grid",
             gridTemplateColumns: "auto 1fr",
             alignItems: "center",
             gap: "8px 12px",
+            marginBottom: "16px",
           }}
         >
           <label>Width</label>
@@ -133,8 +136,14 @@ export const RectControls: React.FC = () => {
             onChange={(e) => handleChange("zIndex", e.target.value)}
           />
         </div>
-        <hr />
-        <button onClick={handleDelete}>Delete rectangle</button>
+        <Button
+          onClick={handleDelete}
+          title="Delete rectangle"
+          variant="critical"
+          fullWidth
+        >
+          Delete rectangle
+        </Button>
       </Toolbar>
 
       <Dialog

@@ -8,6 +8,8 @@
   --color-input-border: #fff;
   --color-overlay: rgba(0, 0, 0, 0.8);
 
+  --font-family: var(--font-cousine, monospace), monospace;
+
   --font-size-small: 0.875rem;
   --font-size-base: 1rem;
   --font-size-large: 1.125rem;
@@ -28,5 +30,5 @@ body {
   margin: 0;
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: var(--font-cousine, monospace), monospace;
+  font-family: var(--font-family);
 }

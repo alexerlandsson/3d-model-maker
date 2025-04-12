@@ -3,6 +3,7 @@
 import React, { useRef, useEffect } from "react";
 import styles from "./Dialog.module.scss";
 import clsx from "clsx";
+import { Button } from "../Button";
 
 interface DialogProps {
   isOpen: boolean;
@@ -55,12 +56,12 @@ export const Dialog: React.FC<DialogProps> = ({
           {children}
         </div>
         <footer className={styles.footer}>
-          <button className={styles.cancelButton} onClick={onClose} title="Cancel">
+          <Button onClick={onClose} title="Cancel">
             Cancel
-          </button>
-          <button className={styles.confirmButton} onClick={onConfirm} title="Confirm">
+          </Button>
+          <Button onClick={onConfirm} title="Confirm" variant="primary">
             Confirm
-          </button>
+          </Button>
         </footer>
       </div>
     </dialog>

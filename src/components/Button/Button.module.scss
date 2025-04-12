@@ -1,0 +1,53 @@
+@use '../../styles/helpers' as *;
+
+.button {
+  --_button-bg: var(--color-bg);
+  --_button-bg-hover: var(--color-bg-hover);
+  --_button-text: var(--color-text);
+  --_button-border-color: var(--color-border);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: size(8) size(10);
+  margin: 0;
+  border-radius: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-size-small);
+  text-align: center;
+  text-transform: uppercase;
+  background-color: var(--_button-bg);
+  color: var(--_button-text);
+  border: 1px solid var(--_button-border-color);
+  transition: transform 200ms ease;
+  cursor: pointer;
+
+  &:enabled {
+    &:hover {
+      background-color: var(--_button-bg-hover);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.37;
+  }
+}
+
+.buttonPrimary {
+  --_button-bg: var(--color-border);
+}
+
+.buttonCritical {
+  --_button-bg: #350808;
+  --_button-text: #ff3939;
+  --_button-border-color: #ff3939;
+}
+
+.buttonFullWidth {
+  width: 100%;
+}

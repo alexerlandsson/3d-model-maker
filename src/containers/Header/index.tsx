@@ -3,13 +3,14 @@
 import React from "react";
 import { useModel } from "@/providers/ModelProvider";
 import { Header } from "@/components/Header";
+import { Button } from "@/components/Button";
 
 export const HeaderContainer: React.FC = () => {
   const { addRectangle, isMaxRectangles } = useModel();
 
   return (
     <Header title="3D Model Maker">
-      <button
+      <Button
         onClick={addRectangle}
         title={
           isMaxRectangles
@@ -19,7 +20,7 @@ export const HeaderContainer: React.FC = () => {
         disabled={isMaxRectangles}
       >
         Add rectangle
-      </button>
+      </Button>
     </Header>
   );
 };
