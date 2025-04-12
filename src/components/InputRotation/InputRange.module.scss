@@ -19,6 +19,24 @@
     cursor: grabbing;
   }
 
+  @include focus-selector {
+    &:focus {
+      outline: none;
+  
+      &::-webkit-slider-thumb {
+        @include focus-styling;
+      }
+
+      &::-moz-range-thumb {
+        @include focus-styling;
+      }
+
+      &::-ms-thumb {
+        @include focus-styling;
+      }
+    }
+  }
+
   // WebKit
 
   &::-webkit-slider-runnable-track {

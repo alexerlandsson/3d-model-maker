@@ -1,0 +1,30 @@
+/// Mixins used to add focus to elements
+
+@use "sass:string";
+
+// Mixins used to add focus selector to components
+@mixin focus-selector(
+  $selector-focus-visible: ":focus-visible",
+  $selector-focus: ":focus"
+) {
+  @supports selector(:focus-visible) {
+    &#{string.unquote($selector-focus-visible)} {
+      @content;
+    }
+  }
+
+  // Safari & IE11
+  @supports not selector(:focus-visible) {
+    &#{string.unquote($selector-focus)} {
+      @content;
+    }
+  }
+}
+
+// Mixin used to add default focus styling
+@mixin focus-styling {
+  outline: var(--focus-outline-size) var(--focus-outline-style)
+    var(--focus-outline-color);
+  outline-offset: var(--focus-outline-offset, var(--focus-outline-size));
+  z-index: 1;
+}

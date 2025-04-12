@@ -1,3 +1,5 @@
+@use 'helpers' as *;
+
 :root {
   --color-bg: #121212;
   --color-bg-hover: #1a1a1a;
@@ -13,6 +15,12 @@
   --font-size-small: 0.875rem;
   --font-size-base: 1rem;
   --font-size-large: 1.125rem;
+
+  // Focus Settings
+  --focus-outline-size: #{size(2)};
+  --focus-outline-offset: #{size(2)};
+  --focus-outline-style: solid;
+  --focus-outline-color: var(--color-border-canvas);
 }
 
 *,
@@ -31,4 +39,23 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-family);
+}
+
+// Focus
+
+// Remove inner focus on buttons in Firefox
+::-moz-focus-inner {
+  border: none;
+}
+
+// Remove default focus outline
+:focus {
+  outline: none;
+}
+
+// Add custom default focus to focusable elements
+:where(a, button, input, select, textarea, summary, [role="button"]) {
+  @include focus-selector {
+    @include focus-styling;
+  }
 }
