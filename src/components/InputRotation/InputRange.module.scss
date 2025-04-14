@@ -4,15 +4,20 @@
   --_range-thickness: #{size(2)};
   --_thumb-size: #{size(20)};
   --_color: var(--color-input-border);
+  --_padding-inline: #{size(16)};
+  --_padding-block: #{size(12)};
+  --_padding-block-actual: calc(var(--_thumb-size) * 0.5 - var(--_range-thickness) * 0.5 + var(--_padding-block));
 
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  display: block;
   background: transparent;
   width: 100%;
+  height: calc(var(--_padding-block-actual) + var(--_range-thickness));
   margin: 0;
-  padding-block: calc(var(--_thumb-size) * 0.5 - var(--_range-thickness) * 0.5 + #{size(12)});
-  padding-inline: size(16);
+  padding-block: var(--_padding-block-actual);
+  padding-inline: var(--_padding-inline);
   cursor: grab;
 
   &:active {
@@ -96,6 +101,8 @@
 .inputVertical {
   writing-mode: vertical-lr;
   direction: rtl;
+  height: 100%;
+  width: calc(var(--_padding-block-actual) + var(--_range-thickness));
 
   // WebKit (Vertical)
 
