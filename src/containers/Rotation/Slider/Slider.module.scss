@@ -3,7 +3,6 @@
 .slider {
   --_slider-border: #{size(1)} solid var(--color-border);
 
-  display: flex;
   background-color: var(--color-bg);
   z-index: 1;
 }
