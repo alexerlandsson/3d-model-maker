@@ -21,7 +21,7 @@ export const Toolbar: React.FC<ToolbarProps> = ({
   onClose,
 }) => {
   const { position, isDragging, onMouseDown, onTouchStart } = useDragWindow({
-    initialPosition: { x: 20, y: 20 }, // Default position offset from top-left
+    initialPosition: { x: 0, y: 0 }, // Default position offset from top-left
   });
 
   return (
