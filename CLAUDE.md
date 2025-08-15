@@ -13,6 +13,11 @@ This is a 3D Model Maker built with Next.js that allows users to create pixelate
 - `npm start` - Start the production server
 - `npm run lint` - Run ESLint for code linting
 
+## Development Notes
+
+- **Background Build**: The development server runs with hot reloading in the background. No need to manually run `npm run build` after code changes as the dev server automatically rebuilds and reloads.
+- **Linting**: Always run `npm run lint` to check code quality before completing tasks.
+
 ## Architecture Overview
 
 ### State Management Architecture
