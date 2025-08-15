@@ -59,6 +59,14 @@ export const useDragRotation = ({
   }, []);
 
   const onMouseDown = useCallback((e: React.MouseEvent) => {
+    // Check if the target is an interactive element
+    const target = e.target as HTMLElement;
+    const interactiveElements = ['BUTTON', 'INPUT', 'SELECT', 'TEXTAREA', 'A'];
+    const isInteractive = interactiveElements.includes(target.tagName) || 
+                         target.closest('button, input, select, textarea, a, [role="button"]');
+    
+    if (isInteractive) return;
+
     e.preventDefault();
     setIsDragging(true);
     lastPositionRef.current = { x: e.clientX, y: e.clientY };
@@ -66,6 +74,14 @@ export const useDragRotation = ({
 
   const onTouchStart = useCallback((e: React.TouchEvent) => {
     if (e.touches.length !== 1) return;
+    
+    // Check if the target is an interactive element
+    const target = e.target as HTMLElement;
+    const interactiveElements = ['BUTTON', 'INPUT', 'SELECT', 'TEXTAREA', 'A'];
+    const isInteractive = interactiveElements.includes(target.tagName) || 
+                         target.closest('button, input, select, textarea, a, [role="button"]');
+    
+    if (isInteractive) return;
     
     e.preventDefault();
     setIsDragging(true);
