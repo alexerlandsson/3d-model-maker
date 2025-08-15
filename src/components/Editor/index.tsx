@@ -32,6 +32,7 @@ export const Editor: React.FC<EditorProps> = ({ children }) => {
       className={clsx(styles.editor, {
         [styles.editorGrabbing]: isDragging,
       })}
+      data-editor="true"
       onMouseDown={onMouseDown}
       onTouchStart={onTouchStart}
     >

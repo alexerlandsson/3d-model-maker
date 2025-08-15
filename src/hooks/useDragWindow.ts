@@ -32,10 +32,46 @@ export const useDragWindow = ({
     const deltaX = e.clientX - lastPositionRef.current.x;
     const deltaY = e.clientY - lastPositionRef.current.y;
 
-    setPosition(prev => ({
-      x: prev.x + deltaX,
-      y: prev.y + deltaY,
-    }));
+    setPosition(prev => {
+      // Get Editor boundaries
+      const editorElement = document.querySelector('[data-editor="true"]');
+      if (!editorElement) {
+        return { x: prev.x + deltaX, y: prev.y + deltaY };
+      }
+
+      const toolbarElement = document.querySelector('[data-toolbar="true"]');
+      if (!toolbarElement) {
+        return { x: prev.x + deltaX, y: prev.y + deltaY };
+      }
+
+      const padding = 16; // 1rem padding
+      const newX = prev.x + deltaX;
+      const newY = prev.y + deltaY;
+
+      // Get dimensions for boundary calculation
+      const editorRect = editorElement.getBoundingClientRect();
+      const toolbarRect = toolbarElement.getBoundingClientRect();
+
+      // Calculate boundaries considering Toolbar's initial CSS positioning
+      // Toolbar starts at bottom: 16px, left: 16px, then transform is applied
+      const toolbarInitialLeft = 16; // from CSS: left: var(--_toolbar-offset)
+      const toolbarInitialBottom = 16; // from CSS: bottom: var(--_toolbar-offset)
+      
+      // Calculate available movement range
+      // For X: can move from initial left position to right edge minus toolbar width and padding
+      const minX = -(toolbarInitialLeft - padding); // Can move left up to padding from edge
+      const maxX = editorRect.width - toolbarRect.width - toolbarInitialLeft - padding;
+      
+      // For Y: negative values move up, positive values move down
+      // Initial position is bottom: 16px, so Y=0 is already 16px from bottom
+      const maxY = -(toolbarInitialBottom - padding); // Can move up to padding from top
+      const minY = -(editorRect.height - toolbarRect.height - toolbarInitialBottom - padding);
+
+      return {
+        x: Math.max(minX, Math.min(maxX, newX)),
+        y: Math.max(minY, Math.min(maxY, newY)),
+      };
+    });
 
     lastPositionRef.current = { x: e.clientX, y: e.clientY };
   }, []);
@@ -52,10 +88,46 @@ export const useDragWindow = ({
     const deltaX = touch.clientX - lastPositionRef.current.x;
     const deltaY = touch.clientY - lastPositionRef.current.y;
 
-    setPosition(prev => ({
-      x: prev.x + deltaX,
-      y: prev.y + deltaY,
-    }));
+    setPosition(prev => {
+      // Get Editor boundaries
+      const editorElement = document.querySelector('[data-editor="true"]');
+      if (!editorElement) {
+        return { x: prev.x + deltaX, y: prev.y + deltaY };
+      }
+
+      const toolbarElement = document.querySelector('[data-toolbar="true"]');
+      if (!toolbarElement) {
+        return { x: prev.x + deltaX, y: prev.y + deltaY };
+      }
+
+      const padding = 16; // 1rem padding
+      const newX = prev.x + deltaX;
+      const newY = prev.y + deltaY;
+
+      // Get dimensions for boundary calculation
+      const editorRect = editorElement.getBoundingClientRect();
+      const toolbarRect = toolbarElement.getBoundingClientRect();
+
+      // Calculate boundaries considering Toolbar's initial CSS positioning
+      // Toolbar starts at bottom: 16px, left: 16px, then transform is applied
+      const toolbarInitialLeft = 16; // from CSS: left: var(--_toolbar-offset)
+      const toolbarInitialBottom = 16; // from CSS: bottom: var(--_toolbar-offset)
+      
+      // Calculate available movement range
+      // For X: can move from initial left position to right edge minus toolbar width and padding
+      const minX = -(toolbarInitialLeft - padding); // Can move left up to padding from edge
+      const maxX = editorRect.width - toolbarRect.width - toolbarInitialLeft - padding;
+      
+      // For Y: negative values move up, positive values move down
+      // Initial position is bottom: 16px, so Y=0 is already 16px from bottom
+      const maxY = -(toolbarInitialBottom - padding); // Can move up to padding from top
+      const minY = -(editorRect.height - toolbarRect.height - toolbarInitialBottom - padding);
+
+      return {
+        x: Math.max(minX, Math.min(maxX, newX)),
+        y: Math.max(minY, Math.min(maxY, newY)),
+      };
+    });
 
     lastPositionRef.current = { x: touch.clientX, y: touch.clientY };
   }, []);
