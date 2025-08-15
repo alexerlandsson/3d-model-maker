@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 interface DragRotationConfig {
   onRotationChange: (deltaX: number, deltaY: number) => void;
@@ -17,8 +17,14 @@ export const useDragRotation = ({
   onRotationChange,
   sensitivity = 0.5,
 }: DragRotationConfig): DragRotationReturn => {
+  const [isDragging, setIsDragging] = useState(false);
   const isDraggingRef = useRef(false);
   const lastPositionRef = useRef({ x: 0, y: 0 });
+
+  // Keep ref in sync with state
+  useEffect(() => {
+    isDraggingRef.current = isDragging;
+  }, [isDragging]);
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     if (!isDraggingRef.current) return;
@@ -32,8 +38,7 @@ export const useDragRotation = ({
   }, [onRotationChange, sensitivity]);
 
   const handleMouseUp = useCallback(() => {
-    isDraggingRef.current = false;
-    document.body.style.cursor = '';
+    setIsDragging(false);
   }, []);
 
   const handleTouchMove = useCallback((e: TouchEvent) => {
@@ -50,21 +55,20 @@ export const useDragRotation = ({
   }, [onRotationChange, sensitivity]);
 
   const handleTouchEnd = useCallback(() => {
-    isDraggingRef.current = false;
+    setIsDragging(false);
   }, []);
 
   const onMouseDown = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
-    isDraggingRef.current = true;
+    setIsDragging(true);
     lastPositionRef.current = { x: e.clientX, y: e.clientY };
-    document.body.style.cursor = 'grabbing';
   }, []);
 
   const onTouchStart = useCallback((e: React.TouchEvent) => {
     if (e.touches.length !== 1) return;
     
     e.preventDefault();
-    isDraggingRef.current = true;
+    setIsDragging(true);
     const touch = e.touches[0];
     lastPositionRef.current = { x: touch.clientX, y: touch.clientY };
   }, []);
@@ -80,13 +84,12 @@ export const useDragRotation = ({
       document.removeEventListener('mouseup', handleMouseUp);
       document.removeEventListener('touchmove', handleTouchMove);
       document.removeEventListener('touchend', handleTouchEnd);
-      isDraggingRef.current = false;
-      document.body.style.cursor = '';
+      setIsDragging(false);
     };
   }, [handleMouseMove, handleMouseUp, handleTouchMove, handleTouchEnd]);
 
   return {
-    isDragging: isDraggingRef.current,
+    isDragging,
     onMouseDown,
     onTouchStart,
   };

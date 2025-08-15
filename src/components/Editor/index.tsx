@@ -4,6 +4,7 @@ import React, { useCallback, useContext } from "react";
 import styles from "./Editor.module.scss";
 import { RotationContext } from "@/providers/RotationProvider";
 import { useDragRotation } from "@/hooks/useDragRotation";
+import clsx from "clsx";
 
 interface EditorProps {
   children: React.ReactNode;
@@ -21,14 +22,16 @@ export const Editor: React.FC<EditorProps> = ({ children }) => {
   }, [setRotation]);
 
   // Set up drag rotation
-  const { onMouseDown, onTouchStart } = useDragRotation({
+  const { isDragging, onMouseDown, onTouchStart } = useDragRotation({
     onRotationChange: handleRotationChange,
     sensitivity: 0.5,
   });
 
   return (
     <div
-      className={styles.editor}
+      className={clsx(styles.editor, {
+        [styles.editorGrabbing]: isDragging,
+      })}
       onMouseDown={onMouseDown}
       onTouchStart={onTouchStart}
     >
