@@ -10,8 +10,13 @@
   border: size(1) solid var(--color-border);
   color: var(--color-text);
   font-size: var(--font-size-small);
-  width: size(200);
+  width: size(320);
   max-width: calc(100% - var(--_toolbar-offset) * 2);
+  z-index: 10; // Ensure toolbar is above other elements
+}
+
+.toolbarDragging {
+  z-index: 20; // Higher z-index when dragging
 }
 
 .header {
@@ -21,6 +26,23 @@
   gap: size(16);
   padding: size(8) size(16);
   border-bottom: 1px solid var(--color-border);
+  cursor: move;
+  user-select: none; // Prevent text selection while dragging
+}
+
+.header:active {
+  cursor: grabbing;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: size(4);
+
+  :global(.icon) {
+    flex-shrink: 0;
+    font-size: 1lh;
+  }
 }
 
 .body {

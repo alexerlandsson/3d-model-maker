@@ -7,8 +7,8 @@ import { ListBullets, Palette, VectorThree } from "@phosphor-icons/react";
 export const EditorControls: React.FC = () => {
   return (
     <div className={styles.controls} role="toolbar" aria-label="Editor controls" id="editor-controls">
-      <Zoom />
       <Canvas />
+      <Zoom />
       {false && (
         <div className="editor__controls-group" role="group" aria-label="Canvas settings">
           <button id="btn-canvas-settings" disabled>
