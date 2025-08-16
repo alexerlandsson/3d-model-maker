@@ -44,6 +44,7 @@ export const Rect: React.FC<RectProps> = ({
           "--z-index": zIndex,
         } as React.CSSProperties
       }
+      data-rect="true"
       role={onClick ? "button" : undefined}
       aria-label={onClick ? "Edit rectangle" : undefined}
       onClick={onClick}
