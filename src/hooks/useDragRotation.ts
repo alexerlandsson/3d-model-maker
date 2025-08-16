@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 interface DragRotationConfig {
   onRotationChange: (deltaX: number, deltaY: number) => void;
   sensitivity?: number;
+  onClickAfterDrag?: (e: React.MouseEvent) => void;
 }
 
 interface DragRotationReturn {
@@ -16,10 +17,13 @@ interface DragRotationReturn {
 export const useDragRotation = ({
   onRotationChange,
   sensitivity = 0.5,
+  onClickAfterDrag,
 }: DragRotationConfig): DragRotationReturn => {
   const [isDragging, setIsDragging] = useState(false);
   const isDraggingRef = useRef(false);
   const lastPositionRef = useRef({ x: 0, y: 0 });
+  const hasMovedRef = useRef(false);
+  const mouseDownEventRef = useRef<React.MouseEvent | null>(null);
 
   // Keep ref in sync with state
   useEffect(() => {
@@ -32,14 +36,32 @@ export const useDragRotation = ({
     const deltaX = e.clientX - lastPositionRef.current.x;
     const deltaY = e.clientY - lastPositionRef.current.y;
 
+    // Mark that we've moved (for distinguishing clicks from drags)
+    if (Math.abs(deltaX) > 1 || Math.abs(deltaY) > 1) {
+      hasMovedRef.current = true;
+    }
+
     onRotationChange(deltaX * sensitivity, deltaY * sensitivity);
 
     lastPositionRef.current = { x: e.clientX, y: e.clientY };
   }, [onRotationChange, sensitivity]);
 
   const handleMouseUp = useCallback(() => {
+    const wasDragging = isDraggingRef.current;
+    const hadMoved = hasMovedRef.current;
+    const mouseDownEvent = mouseDownEventRef.current;
+    
     setIsDragging(false);
-  }, []);
+    
+    // If we were "dragging" but never actually moved, treat it as a click
+    if (wasDragging && !hadMoved && mouseDownEvent && onClickAfterDrag) {
+      onClickAfterDrag(mouseDownEvent);
+    }
+    
+    // Reset movement tracking
+    hasMovedRef.current = false;
+    mouseDownEventRef.current = null;
+  }, [onClickAfterDrag]);
 
   const handleTouchMove = useCallback((e: TouchEvent) => {
     if (!isDraggingRef.current || e.touches.length !== 1) return;
@@ -67,6 +89,8 @@ export const useDragRotation = ({
 
     e.preventDefault();
     setIsDragging(true);
+    hasMovedRef.current = false;
+    mouseDownEventRef.current = e;
     lastPositionRef.current = { x: e.clientX, y: e.clientY };
   }, []);
 

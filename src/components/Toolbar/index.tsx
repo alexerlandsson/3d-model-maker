@@ -1,11 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Toolbar.module.scss";
-import { Button } from "../Button";
 import { useDragWindow } from "@/hooks/useDragWindow";
 import clsx from "clsx";
-import { DotsSixVertical, X } from "@phosphor-icons/react";
+import { ArrowsInLineVertical, DotsSixVertical, X } from "@phosphor-icons/react";
 
 interface ToolbarProps {
   ariaLabel: string;
@@ -23,6 +22,8 @@ export const Toolbar: React.FC<ToolbarProps> = ({
   const { position, isDragging, onMouseDown, onTouchStart } = useDragWindow({
     initialPosition: { x: 0, y: 0 }, // Default position offset from top-left
   });
+
+  const [isMinimized, setIsMinimized] = useState(false);
 
   return (
     <div
@@ -45,14 +46,30 @@ export const Toolbar: React.FC<ToolbarProps> = ({
           <DotsSixVertical weight="bold" className="icon" aria-hidden="true" />
           {title}
         </span>
-        {onClose && (
-          <Button onClick={onClose} title="Close toolbar">
-            <X weight="bold" className="icon" aria-hidden="true" />
-            <span className="sr-only">Close toolbar</span>
-          </Button>
-        )}
+        <div className={styles.headerActions}>
+          <button
+            title="Minimize toolbar"
+            className={styles.headerButton}
+            onClick={() => setIsMinimized(!isMinimized)}
+          >
+            <ArrowsInLineVertical weight="bold" className="icon" aria-hidden="true" />
+            <span className="sr-only">Minimize toolbar</span>
+          </button>
+          {onClose && (
+            <button
+              onClick={onClose}
+              title="Close toolbar"
+              className={styles.headerButton}
+            >
+              <X weight="bold" className="icon" aria-hidden="true" />
+              <span className="sr-only">Close toolbar</span>
+            </button>
+          )}
+        </div>
       </header>
-      <div className={styles.body}>{children}</div>
+      <div className={clsx(styles.body, {
+        [styles.bodyMinimized]: isMinimized,
+      })}>{children}</div>
     </div>
   );
 };

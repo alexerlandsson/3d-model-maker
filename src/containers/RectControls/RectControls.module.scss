@@ -1,0 +1,95 @@
+@use "../../styles/helpers" as *;
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: size(4);
+}
+
+.fieldset {
+  --_input-size: #{size(32)};
+  --_input-bg: var(--color-input-bg);
+  --_input-color: var(--color-input-color);
+
+  display: grid;
+  grid-template-columns: size(70) 1fr var(--_input-size) var(--_input-size);
+  align-items: center;
+  gap: size(4);
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.fieldsetSingleInput {
+  grid-template-columns: size(70) 1fr;
+}
+
+.label {
+  font-size: var(--font-size-xsmall);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.input {
+  width: 100%;
+  height: var(--_input-size);
+  padding: 0 size(8);
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background-color: var(--_input-bg);
+  color: var(--_input-color);
+
+  &:enabled {
+    &:hover {
+      --_input-bg: var(--color-input-bg-hover);
+    }
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.37;
+  }
+}
+
+.inputColor {
+  composes: input;
+  padding: size(4);
+}
+
+.stepButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--_input-size);
+  height: var(--_input-size);
+  background-color: var(--_input-bg);
+  color: var(--_input-color);
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: var(--font-size-small);
+
+  &:enabled {
+    &:hover {
+      --_input-bg: var(--color-input-bg-hover);
+    }
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.37;
+  }
+}
+
+.separator {
+  display: block;
+  width: 100%;
+  height: size(1);
+  border: none;
+  background-color: var(--color-border);
+  margin: size(4) 0;
+}
