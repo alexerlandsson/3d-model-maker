@@ -3,7 +3,7 @@
 .input {
   --_range-thickness: #{size(2)};
   --_thumb-size: #{size(20)};
-  --_color: var(--color-input-border);
+  --_color: var(--color-text);
   --_padding-inline: #{size(16)};
   --_padding-block: #{size(12)};
   --_padding-block-actual: calc(var(--_thumb-size) * 0.5 - var(--_range-thickness) * 0.5 + var(--_padding-block));

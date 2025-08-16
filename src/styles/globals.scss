@@ -7,11 +7,14 @@
   --color-text-secondary: #ababab;
   --color-border: #424242;
   --color-border-canvas: #3366ff;
-  --color-input-border: #fff;
+  --color-input-bg: #242424;
+  --color-input-bg-hover: #353535;
+  --color-input-color: #fff;
   --color-overlay: rgba(0, 0, 0, 0.8);
 
   --font-family: var(--font-cousine, monospace), monospace;
 
+  --font-size-xsmall: 0.75rem;
   --font-size-small: 0.875rem;
   --font-size-base: 1rem;
   --font-size-large: 1.125rem;
