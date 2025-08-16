@@ -22,6 +22,10 @@
   border: none;
 }
 
+.fieldsetSingleInput {
+  grid-template-columns: size(70) 1fr;
+}
+
 .label {
   font-size: var(--font-size-xsmall);
   white-space: nowrap;
@@ -49,6 +53,11 @@
     cursor: not-allowed;
     opacity: 0.37;
   }
+}
+
+.inputColor {
+  composes: input;
+  padding: size(4);
 }
 
 .stepButton {
@@ -82,5 +91,5 @@
   height: size(1);
   border: none;
   background-color: var(--color-border);
-  margin: size(8) 0;
+  margin: size(4) 0;
 }

@@ -27,6 +27,10 @@ export const RectControlFieldset: React.FC<RectControlFieldsetProps> = ({
   onChange,
   allowNegative = true,
 }) => {
+  const currentValue = value || defaultValue;
+  const isAtMin = currentValue <= min;
+  const isAtMax = currentValue >= max;
+
   const handleIncrement = () => {
     onChange(field, (value || defaultValue) + 1);
   };
@@ -50,11 +54,21 @@ export const RectControlFieldset: React.FC<RectControlFieldsetProps> = ({
         onFocus={(e) => e.target.select()}
         className={styles.input}
       />
-      <button title={increaseTitle} onClick={handleIncrement} className={styles.stepButton}>
+      <button 
+        title={increaseTitle} 
+        onClick={handleIncrement} 
+        className={styles.stepButton}
+        disabled={isAtMax}
+      >
         <span className="sr-only">{increaseTitle}</span>
         <Plus weight="bold" className="icon" aria-hidden="true" />
       </button>
-      <button title={decreaseTitle} onClick={handleDecrement} className={styles.stepButton}>
+      <button 
+        title={decreaseTitle} 
+        onClick={handleDecrement} 
+        className={styles.stepButton}
+        disabled={isAtMin}
+      >
         <span className="sr-only">{decreaseTitle}</span>
         <Minus weight="bold" className="icon" aria-hidden="true" />
       </button>

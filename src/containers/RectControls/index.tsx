@@ -7,6 +7,7 @@ import { useModel } from "@/providers/ModelProvider";
 import { Button } from "@/components/Button";
 import { RectControlFieldset } from "./RectControlFieldset";
 import styles from "./RectControls.module.scss";
+import clsx from "clsx";
 
 export const RectControls: React.FC = () => {
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
@@ -64,7 +65,7 @@ export const RectControls: React.FC = () => {
           <RectControlFieldset
             legend="Width"
             value={activeRect.width}
-            min={0}
+            min={1}
             max={100}
             field="width"
             defaultValue={1}
@@ -77,7 +78,7 @@ export const RectControls: React.FC = () => {
           <RectControlFieldset
             legend="Height"
             value={activeRect.height}
-            min={0}
+            min={1}
             max={100}
             field="height"
             defaultValue={1}
@@ -90,7 +91,7 @@ export const RectControls: React.FC = () => {
           <RectControlFieldset
             legend="Depth"
             value={activeRect.depth}
-            min={0}
+            min={1}
             max={100}
             field="depth"
             defaultValue={1}
@@ -152,29 +153,28 @@ export const RectControls: React.FC = () => {
             onChange={handleChange}
           />
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "auto 1fr",
-              alignItems: "center",
-              gap: "8px 12px",
-            }}
-          >
-            <label>Color</label>
+          <fieldset className={clsx(styles.fieldset, styles.fieldsetSingleInput)}>
+            <legend className="sr-only">Color</legend>
+            <span aria-hidden="true" className={styles.label}>
+              Color
+            </span>
             <input
               type="color"
               value={activeRect.color || "#000000"}
               onChange={(e) => handleChange("color", e.target.value)}
-              style={{ width: "100%" }}
+              className={styles.inputColor}
             />
-          </div>
+          </fieldset>
+
+          <hr className={styles.separator} />
+
           <Button
             onClick={handleDelete}
             title="Delete rectangle"
             variant="critical"
             fullWidth
           >
-            Delete rectangle
+            Delete
           </Button>
         </div>
       </Toolbar>
