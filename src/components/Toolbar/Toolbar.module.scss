@@ -23,8 +23,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: size(40);
   gap: size(16);
-  padding: size(8) size(16);
   border-bottom: 1px solid var(--color-border);
   cursor: move;
   user-select: none; // Prevent text selection while dragging
@@ -37,14 +37,51 @@
 .title {
   display: flex;
   align-items: center;
-  gap: size(4);
+  gap: size(8);
+  padding-inline: size(8);
 
   :global(.icon) {
     flex-shrink: 0;
-    font-size: 1lh;
+    font-size: 1.25rem;
+    color: var(--color-border);
+  }
+}
+
+.headerActions {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.headerButton {
+  --_button-bg: var(--color-bg);
+
+  height: 100%;
+  aspect-ratio: 1;
+  background-color: var(--_button-bg);
+  color: var(--color-text);
+  border: none;
+  border-left: 1px solid var(--color-border);
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+
+  &:enabled {
+    &:hover {
+      --_button-bg: var(--color-bg-hover);
+    }
   }
 }
 
 .body {
   padding: size(16);
+}
+
+.bodyMinimized {
+  max-height: size(160);
+  overflow: auto;
 }
