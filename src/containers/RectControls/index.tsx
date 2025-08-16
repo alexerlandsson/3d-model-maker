@@ -60,81 +60,182 @@ export const RectControls: React.FC = () => {
       >
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: "auto 1fr",
-            alignItems: "center",
-            gap: "8px 12px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "16px",
             marginBottom: "16px",
           }}
         >
-          <label>Width</label>
-          <input
-            type="number"
-            min="0"
-            max="100"
-            value={activeRect.width || 1}
-            onChange={(e) => handleChange("width", e.target.value)}
-          />
-          <label>Height</label>
-          <input
-            type="number"
-            min="0"
-            max="100"
-            value={activeRect.height || 1}
-            onChange={(e) => handleChange("height", e.target.value)}
-          />
+          <fieldset>
+            <legend>Width</legend>
+            <input
+              type="number"
+              min="0"
+              max="100"
+              value={activeRect.width || 1}
+              onChange={(e) => handleChange("width", e.target.value)}
+            />
+            <button
+              title="Increase width"
+              onClick={() => handleChange("width", (activeRect.width || 1) + 1)}
+            >
+              +
+            </button>
+            <button
+              title="Decrease width"
+              onClick={() => handleChange("width", Math.max(0, (activeRect.width || 1) - 1))}
+            >
+              -
+            </button>
+          </fieldset>
 
-          <label>Depth</label>
-          <input
-            type="number"
-            min="0"
-            max="100"
-            value={activeRect.depth || 1}
-            onChange={(e) => handleChange("depth", e.target.value)}
-          />
+          <fieldset>
+            <legend>Height</legend>
+            <input
+              type="number"
+              min="0"
+              max="100"
+              value={activeRect.height || 1}
+              onChange={(e) => handleChange("height", e.target.value)}
+            />
+            <button
+              title="Increase height"
+              onClick={() => handleChange("height", (activeRect.height || 1) + 1)}
+            >
+              +
+            </button>
+            <button
+              title="Decrease height"
+              onClick={() => handleChange("height", Math.max(0, (activeRect.height || 1) - 1))}
+            >
+              -
+            </button>
+          </fieldset>
 
-          <label>Pos (X)</label>
-          <input
-            type="number"
-            min="-100"
-            max="100"
-            value={activeRect.posX || 0}
-            onChange={(e) => handleChange("posX", e.target.value)}
-          />
-          <label>Pos (Y)</label>
-          <input
-            type="number"
-            min="-100"
-            max="100"
-            value={activeRect.posY || 0}
-            onChange={(e) => handleChange("posY", e.target.value)}
-          />
+          <fieldset>
+            <legend>Depth</legend>
+            <input
+              type="number"
+              min="0"
+              max="100"
+              value={activeRect.depth || 1}
+              onChange={(e) => handleChange("depth", e.target.value)}
+            />
+            <button
+              title="Increase depth"
+              onClick={() => handleChange("depth", (activeRect.depth || 1) + 1)}
+            >
+              +
+            </button>
+            <button
+              title="Decrease depth"
+              onClick={() => handleChange("depth", Math.max(0, (activeRect.depth || 1) - 1))}
+            >
+              -
+            </button>
+          </fieldset>
 
-          <label>Pos (Z)</label>
-          <input
-            type="number"
-            min="-100"
-            max="100"
-            value={activeRect.posZ || 0}
-            onChange={(e) => handleChange("posZ", e.target.value)}
-          />
+          <fieldset>
+            <legend>Pos (X)</legend>
+            <input
+              type="number"
+              min="-100"
+              max="100"
+              value={activeRect.posX || 0}
+              onChange={(e) => handleChange("posX", e.target.value)}
+            />
+            <button
+              title="Increase X position"
+              onClick={() => handleChange("posX", (activeRect.posX || 0) + 1)}
+            >
+              +
+            </button>
+            <button
+              title="Decrease X position"
+              onClick={() => handleChange("posX", (activeRect.posX || 0) - 1)}
+            >
+              -
+            </button>
+          </fieldset>
 
-          <label>Color</label>
-          <input
-            type="color"
-            value={activeRect.color || "#000000"}
-            onChange={(e) => handleChange("color", e.target.value)}
-            style={{ width: "100%" }}
-          />
+          <fieldset>
+            <legend>Pos (Y)</legend>
+            <input
+              type="number"
+              min="-100"
+              max="100"
+              value={activeRect.posY || 0}
+              onChange={(e) => handleChange("posY", e.target.value)}
+            />
+            <button
+              title="Increase Y position"
+              onClick={() => handleChange("posY", (activeRect.posY || 0) + 1)}
+            >
+              +
+            </button>
+            <button
+              title="Decrease Y position"
+              onClick={() => handleChange("posY", (activeRect.posY || 0) - 1)}
+            >
+              -
+            </button>
+          </fieldset>
 
-          <label>Layer</label>
-          <input
-            type="number"
-            min="-100"
-            max="100"
-            value={activeRect.zIndex || 0}
-            onChange={(e) => handleChange("zIndex", e.target.value)}
-          />
+          <fieldset>
+            <legend>Pos (Z)</legend>
+            <input
+              type="number"
+              min="-100"
+              max="100"
+              value={activeRect.posZ || 0}
+              onChange={(e) => handleChange("posZ", e.target.value)}
+            />
+            <button
+              title="Increase Z position"
+              onClick={() => handleChange("posZ", (activeRect.posZ || 0) + 1)}
+            >
+              +
+            </button>
+            <button
+              title="Decrease Z position"
+              onClick={() => handleChange("posZ", (activeRect.posZ || 0) - 1)}
+            >
+              -
+            </button>
+          </fieldset>
+
+          <fieldset>
+            <legend>Layer</legend>
+            <input
+              type="number"
+              min="-100"
+              max="100"
+              value={activeRect.zIndex || 0}
+              onChange={(e) => handleChange("zIndex", e.target.value)}
+            />
+            <button
+              title="Increase layer"
+              onClick={() => handleChange("zIndex", (activeRect.zIndex || 0) + 1)}
+            >
+              +
+            </button>
+            <button
+              title="Decrease layer"
+              onClick={() => handleChange("zIndex", (activeRect.zIndex || 0) - 1)}
+            >
+              -
+            </button>
+          </fieldset>
+
+          <div style={{ display: "grid", gridTemplateColumns: "auto 1fr", alignItems: "center", gap: "8px 12px" }}>
+            <label>Color</label>
+            <input
+              type="color"
+              value={activeRect.color || "#000000"}
+              onChange={(e) => handleChange("color", e.target.value)}
+              style={{ width: "100%" }}
+            />
+          </div>
         </div>
         <Button
           onClick={handleDelete}
