@@ -6,10 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "deploy": "wrangler pages deploy out",
-    "pages:build": "npm run build",
-    "pages:dev": "wrangler pages dev out --compatibility-date=2024-11-20"
+    "lint": "next lint"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.7",
@@ -26,7 +23,6 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
-    "typescript": "^5",
-    "wrangler": "^4.30.0"
+    "typescript": "^5"
   }
 }
