@@ -171,7 +171,6 @@ export const RectControls: React.FC = () => {
           <Button
             onClick={handleDelete}
             title="Delete rectangle"
-            variant="critical"
             fullWidth
           >
             Delete
