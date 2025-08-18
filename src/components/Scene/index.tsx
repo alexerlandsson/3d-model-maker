@@ -8,7 +8,7 @@ interface SceneProps {
 
 export const Scene: React.FC<SceneProps> = ({ children, style }) => {
   return (
-    <div className={styles.scene} style={style} role="img" aria-label="3D model">
+    <div className={styles.scene} style={style} role="img" aria-label="Voxel model">
       {children}
     </div>
   );

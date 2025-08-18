@@ -3,7 +3,7 @@
 import React, { useContext } from "react";
 import styles from "../EditorControls.module.scss";
 import { ZoomContext, MIN_ZOOM, MAX_ZOOM } from "@/providers/ZoomProvider";
-import { ArrowClockwise, Minus, Plus } from "@phosphor-icons/react";
+import { ArrowClockwise, MagnifyingGlassMinus, MagnifyingGlassPlus } from "@phosphor-icons/react";
 
 export const Zoom: React.FC = () => {
   const { zoom, zoomIn, zoomOut, resetZoom, isDefaultZoom } = useContext(ZoomContext);
@@ -17,7 +17,7 @@ export const Zoom: React.FC = () => {
           disabled={zoom >= MAX_ZOOM}
         >
           <span className="sr-only">Zoom in</span>
-          <Plus weight="bold" className="icon" aria-hidden="true" />
+          <MagnifyingGlassPlus weight="bold" className="icon" aria-hidden="true" />
         </button>
         <button 
           className={styles.button}
@@ -26,7 +26,7 @@ export const Zoom: React.FC = () => {
           disabled={zoom <= MIN_ZOOM}
         >
           <span className="sr-only">Zoom out</span>
-          <Minus weight="bold" className="icon" aria-hidden="true" />
+          <MagnifyingGlassMinus weight="bold" className="icon" aria-hidden="true" />
         </button>
         <button 
           className={styles.button}

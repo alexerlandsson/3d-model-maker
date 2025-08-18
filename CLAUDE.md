@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a 3D Model Maker built with Next.js that allows users to create pixelated 3D models using HTML and CSS. The application renders 3D cubes (rectangles) that can be positioned, sized, and styled in a 3D space using pure CSS transforms.
+This is a CSS voxel editor built with Next.js that allows users to create pixelated 3D models using HTML and CSS. The application renders 3D cubes (rectangles) that can be positioned, sized, and styled in a 3D space using pure CSS transforms.
 
 ## Development Commands
 

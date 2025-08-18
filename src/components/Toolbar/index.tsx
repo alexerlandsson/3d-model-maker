@@ -44,7 +44,7 @@ export const Toolbar: React.FC<ToolbarProps> = ({
       >
         <span className={styles.title}>
           <DotsSixVertical weight="bold" className="icon" aria-hidden="true" />
-          {title}
+          <span className={styles.titleText}>{title}</span>
         </span>
         <div className={styles.headerActions}>
           <button

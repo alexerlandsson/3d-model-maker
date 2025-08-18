@@ -1,6 +1,6 @@
 {
-  "name": "3D Model Maker",
-  "short_name": "3D Model",
+  "name": "CSS Voxel Studio",
+  "short_name": "CSS Voxel",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",

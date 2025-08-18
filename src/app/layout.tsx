@@ -13,8 +13,8 @@ const cousine = Cousine({
 });
 
 export const metadata: Metadata = {
-  title: "3D Model Maker",
-  description: "Simple tool to create pixelated 3D models",
+  title: "CSS Voxel Studio",
+  description: "Simple tool to create voxels in CSS",
   icons: {
     icon: [
       { url: "/favicon/favicon.ico" },

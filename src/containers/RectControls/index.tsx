@@ -57,7 +57,7 @@ export const RectControls: React.FC = () => {
   return (
     <>
       <Toolbar
-        title="Settings"
+        title={activeRect.id}
         ariaLabel="Active rectangle settings"
         onClose={() => setActiveRectId(null)}
       >
@@ -104,7 +104,7 @@ export const RectControls: React.FC = () => {
           <hr className={styles.separator} />
 
           <RectControlFieldset
-            legend="Pos (X)"
+            legend="Pos. X"
             value={activeRect.posX}
             min={-100}
             max={100}
@@ -116,7 +116,7 @@ export const RectControls: React.FC = () => {
           />
 
           <RectControlFieldset
-            legend="Pos (Y)"
+            legend="Pos. Y"
             value={activeRect.posY}
             min={-100}
             max={100}
@@ -128,7 +128,7 @@ export const RectControls: React.FC = () => {
           />
 
           <RectControlFieldset
-            legend="Pos (Z)"
+            legend="Pos. Z"
             value={activeRect.posZ}
             min={-100}
             max={100}
@@ -170,7 +170,7 @@ export const RectControls: React.FC = () => {
 
           <Button
             onClick={handleDelete}
-            title="Delete rectangle"
+            title="Delete cuboid"
             fullWidth
           >
             Delete
