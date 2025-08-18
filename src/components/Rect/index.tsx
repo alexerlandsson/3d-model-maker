@@ -46,7 +46,7 @@ export const Rect: React.FC<RectProps> = ({
       }
       data-rect="true"
       role={onClick ? "button" : undefined}
-      aria-label={onClick ? "Edit rectangle" : undefined}
+      aria-label={onClick ? "Edit cuboid" : undefined}
       onClick={onClick}
     >
       <div className={clsx(styles.face, styles.faceFront)}></div>

@@ -23,7 +23,7 @@ export const Editor: React.FC<EditorProps> = ({ children }) => {
     }));
   }, [setRotation]);
 
-  // Handle click outside of rectangles to deselect
+  // Handle click outside of cuboids to deselect
   const handleEditorClick = useCallback((e: React.MouseEvent) => {
     const target = e.target as HTMLElement;
     
