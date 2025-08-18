@@ -17,6 +17,7 @@ interface ModelContextType {
   addCuboid: () => void;
   updateCuboid: (id: string, props: Partial<CuboidProps>) => void;
   deleteCuboid: (id: string) => void;
+  clearAllCuboids: () => void;
   isMaxCuboids: boolean;
 }
 
@@ -71,6 +72,11 @@ export const ModelProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
   };
 
+  const clearAllCuboids = () => {
+    setCuboids([]);
+    setActiveCuboidId(null);
+  };
+
   return (
     <ModelContext.Provider 
       value={{ 
@@ -80,6 +86,7 @@ export const ModelProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         addCuboid, 
         updateCuboid,
         deleteCuboid,
+        clearAllCuboids,
         isMaxCuboids 
       }}
     >
