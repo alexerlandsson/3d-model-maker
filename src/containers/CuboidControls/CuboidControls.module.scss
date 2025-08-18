@@ -58,6 +58,7 @@
 .inputColor {
   composes: input;
   padding: size(4);
+  cursor: pointer;
 }
 
 .stepButton {

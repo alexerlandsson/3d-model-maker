@@ -26,7 +26,7 @@ export const Toolbar: React.FC<ToolbarProps> = ({
   const [isMinimized, setIsMinimized] = useState(false);
 
   return (
-    <div
+    <aside
       className={clsx(styles.toolbar, {
         [styles.toolbarDragging]: isDragging,
       })}
@@ -70,6 +70,6 @@ export const Toolbar: React.FC<ToolbarProps> = ({
       <div className={clsx(styles.body, {
         [styles.bodyMinimized]: isMinimized,
       })}>{children}</div>
-    </div>
+    </aside>
   );
 };

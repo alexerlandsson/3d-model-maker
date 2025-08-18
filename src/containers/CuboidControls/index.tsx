@@ -58,7 +58,7 @@ export const CuboidControls: React.FC = () => {
     <>
       <Toolbar
         title={activeCuboid.id}
-        ariaLabel="Active cuboid settings"
+        ariaLabel={`Settings for cuboid ${activeCuboid.id}`}
         onClose={() => setActiveCuboidId(null)}
       >
         <div className={styles.list}>

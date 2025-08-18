@@ -3,6 +3,7 @@ import styles from "./EditorControls.module.scss";
 import { Zoom } from "./Zoom";
 import { Canvas } from "./Canvas";
 import { Cuboid } from "./Cuboid";
+import { Model } from "./Model";
 
 export const EditorControls: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ export const EditorControls: React.FC = () => {
       <Cuboid />
       <Zoom />
       <Canvas />
+      <Model />
     </div>
   );
 };

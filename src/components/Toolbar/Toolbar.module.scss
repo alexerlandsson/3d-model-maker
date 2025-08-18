@@ -6,12 +6,15 @@
   position: absolute;
   bottom: var(--_toolbar-offset);
   left: var(--_toolbar-offset);
+  display: flex;
+  flex-direction: column;
   background-color: var(--color-bg);
   border: size(1) solid var(--color-border);
   color: var(--color-text);
   font-size: var(--font-size-small);
   width: size(320);
   max-width: calc(100% - var(--_toolbar-offset) * 2);
+  max-height: calc(100% - var(--_toolbar-offset) * 2);
   z-index: 10; // Ensure toolbar is above other elements
 }
 
@@ -20,6 +23,7 @@
 }
 
 .header {
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -27,7 +31,7 @@
   gap: size(16);
   border-bottom: 1px solid var(--color-border);
   cursor: move;
-  user-select: none; // Prevent text selection while dragging
+  user-select: none;
 }
 
 .header:active {
@@ -87,9 +91,9 @@
 .body {
   padding: size(16);
   cursor: default;
+  overflow: auto;
 }
 
 .bodyMinimized {
   max-height: size(160);
-  overflow: auto;
 }
