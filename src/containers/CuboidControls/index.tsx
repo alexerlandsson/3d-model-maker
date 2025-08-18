@@ -5,26 +5,26 @@ import { Toolbar } from "@/components/Toolbar";
 import { Dialog } from "@/components/Dialog";
 import { useModel } from "@/providers/ModelProvider";
 import { Button } from "@/components/Button";
-import { RectControlFieldset } from "./RectControlFieldset";
-import styles from "./RectControls.module.scss";
+import { CuboidControlFieldset } from "./CuboidControlFieldset";
+import styles from "./CuboidControls.module.scss";
 import clsx from "clsx";
 
-export const RectControls: React.FC = () => {
+export const CuboidControls: React.FC = () => {
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const {
-    rectangles,
-    activeRectId,
-    updateRectangle,
-    deleteRectangle,
-    setActiveRectId,
+    cuboids,
+    activeCuboidId,
+    updateCuboid,
+    deleteCuboid,
+    setActiveCuboidId,
   } = useModel();
 
-  // If no rect is active, don't render anything
-  if (!activeRectId) return null;
+  // If no cuboid is active, don't render anything
+  if (!activeCuboidId) return null;
 
-  // Find the active rectangle
-  const activeRect = rectangles.find((rect) => rect.id === activeRectId);
-  if (!activeRect) return null;
+  // Find the active cuboid
+  const activeCuboid = cuboids.find((cuboid) => cuboid.id === activeCuboidId);
+  if (!activeCuboid) return null;
 
   const handleChange = (field: string, value: string | number) => {
     // Convert string inputs to numbers for numeric fields
@@ -39,9 +39,9 @@ export const RectControls: React.FC = () => {
     ];
     if (numericFields.includes(field)) {
       const numValue = typeof value === "string" ? parseFloat(value) : value;
-      updateRectangle(activeRectId, { [field]: numValue });
+      updateCuboid(activeCuboidId, { [field]: numValue });
     } else {
-      updateRectangle(activeRectId, { [field]: value });
+      updateCuboid(activeCuboidId, { [field]: value });
     }
   };
 
@@ -50,21 +50,21 @@ export const RectControls: React.FC = () => {
   };
 
   const confirmDelete = () => {
-    deleteRectangle(activeRectId);
+    deleteCuboid(activeCuboidId);
     setIsDeleteDialogOpen(false);
   };
 
   return (
     <>
       <Toolbar
-        title={activeRect.id}
-        ariaLabel="Active rectangle settings"
-        onClose={() => setActiveRectId(null)}
+        title={activeCuboid.id}
+        ariaLabel="Active cuboid settings"
+        onClose={() => setActiveCuboidId(null)}
       >
         <div className={styles.list}>
-          <RectControlFieldset
+          <CuboidControlFieldset
             legend="Width"
-            value={activeRect.width}
+            value={activeCuboid.width}
             min={1}
             max={100}
             field="width"
@@ -75,9 +75,9 @@ export const RectControls: React.FC = () => {
             allowNegative={false}
           />
 
-          <RectControlFieldset
+          <CuboidControlFieldset
             legend="Height"
-            value={activeRect.height}
+            value={activeCuboid.height}
             min={1}
             max={100}
             field="height"
@@ -88,9 +88,9 @@ export const RectControls: React.FC = () => {
             allowNegative={false}
           />
 
-          <RectControlFieldset
+          <CuboidControlFieldset
             legend="Depth"
-            value={activeRect.depth}
+            value={activeCuboid.depth}
             min={1}
             max={100}
             field="depth"
@@ -103,9 +103,9 @@ export const RectControls: React.FC = () => {
 
           <hr className={styles.separator} />
 
-          <RectControlFieldset
+          <CuboidControlFieldset
             legend="Pos. X"
-            value={activeRect.posX}
+            value={activeCuboid.posX}
             min={-100}
             max={100}
             field="posX"
@@ -115,9 +115,9 @@ export const RectControls: React.FC = () => {
             onChange={handleChange}
           />
 
-          <RectControlFieldset
+          <CuboidControlFieldset
             legend="Pos. Y"
-            value={activeRect.posY}
+            value={activeCuboid.posY}
             min={-100}
             max={100}
             field="posY"
@@ -127,9 +127,9 @@ export const RectControls: React.FC = () => {
             onChange={handleChange}
           />
 
-          <RectControlFieldset
+          <CuboidControlFieldset
             legend="Pos. Z"
-            value={activeRect.posZ}
+            value={activeCuboid.posZ}
             min={-100}
             max={100}
             field="posZ"
@@ -141,9 +141,9 @@ export const RectControls: React.FC = () => {
 
           <hr className={styles.separator} />
 
-          <RectControlFieldset
+          <CuboidControlFieldset
             legend="Layer"
-            value={activeRect.zIndex}
+            value={activeCuboid.zIndex}
             min={-100}
             max={100}
             field="zIndex"
@@ -160,7 +160,7 @@ export const RectControls: React.FC = () => {
             </span>
             <input
               type="color"
-              value={activeRect.color || "#000000"}
+              value={activeCuboid.color || "#000000"}
               onChange={(e) => handleChange("color", e.target.value)}
               className={styles.inputColor}
             />
@@ -185,7 +185,7 @@ export const RectControls: React.FC = () => {
         onClose={() => setIsDeleteDialogOpen(false)}
         onConfirm={confirmDelete}
       >
-        Are you sure you want to delete this rectangle? This action can nog be
+        Are you sure you want to delete this cuboid? This action cannot be
         undone.
       </Dialog>
     </>

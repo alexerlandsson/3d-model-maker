@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./RectControls.module.scss";
+import styles from "./CuboidControls.module.scss";
 import { Minus, Plus } from "@phosphor-icons/react";
 
-interface RectControlFieldsetProps {
+interface CuboidControlFieldsetProps {
   legend: string;
   value: number | undefined;
   min: number;
@@ -15,7 +15,7 @@ interface RectControlFieldsetProps {
   allowNegative?: boolean;
 }
 
-export const RectControlFieldset: React.FC<RectControlFieldsetProps> = ({
+export const CuboidControlFieldset: React.FC<CuboidControlFieldsetProps> = ({
   legend,
   value,
   min,

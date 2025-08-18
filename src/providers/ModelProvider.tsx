@@ -1,23 +1,23 @@
 "use client";
 
-import { RectProps } from '@/components/Rect';
+import { CuboidProps } from '@/components/Cuboid';
 import React, { createContext, useContext, useState } from 'react';
 
-// Maximum number of rectangles allowed
-export const MAX_RECTANGLES = 99;
+// Maximum number of cuboids allowed
+export const MAX_CUBOIDS = 99;
 
-interface Rectangle extends RectProps{
+interface Cuboid extends CuboidProps{
   id: string;
 }
 
 interface ModelContextType {
-  rectangles: Rectangle[];
-  activeRectId: string | null;
-  setActiveRectId: (id: string | null) => void;
-  addRectangle: () => void;
-  updateRectangle: (id: string, props: Partial<RectProps>) => void;
-  deleteRectangle: (id: string) => void;
-  isMaxRectangles: boolean;
+  cuboids: Cuboid[];
+  activeCuboidId: string | null;
+  setActiveCuboidId: (id: string | null) => void;
+  addCuboid: () => void;
+  updateCuboid: (id: string, props: Partial<CuboidProps>) => void;
+  deleteCuboid: (id: string) => void;
+  isMaxCuboids: boolean;
 }
 
 const ModelContext = createContext<ModelContextType | undefined>(undefined);
@@ -31,19 +31,19 @@ export const useModel = (): ModelContextType => {
 };
 
 export const ModelProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [rectangles, setRectangles] = useState<Rectangle[]>([]);
-  const [activeRectId, setActiveRectId] = useState<string | null>(null);
+  const [cuboids, setCuboids] = useState<Cuboid[]>([]);
+  const [activeCuboidId, setActiveCuboidId] = useState<string | null>(null);
   
-  // Check if we've reached the maximum number of rectangles
-  const isMaxRectangles = rectangles.length >= MAX_RECTANGLES;
+  // Check if we've reached the maximum number of cuboids
+  const isMaxCuboids = cuboids.length >= MAX_CUBOIDS;
 
   // Document-level click event is now handled through the Root component ref in page.tsx
 
-  const addRectangle = () => {
-    // Prevent adding more rectangles if we've reached the maximum
-    if (isMaxRectangles) return;
+  const addCuboid = () => {
+    // Prevent adding more cuboids if we've reached the maximum
+    if (isMaxCuboids) return;
     
-    const newRectangle: Rectangle = {
+    const newCuboid: Cuboid = {
       id: `${Date.now()}-${Math.random().toString(36).slice(2)}`,
       width: 1, height: 1, depth: 1,
       posX: 0, posY: 0, posZ: 0,
@@ -51,36 +51,36 @@ export const ModelProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       color: '#cccccc'
     };
     
-    setRectangles(prev => [...prev, newRectangle]);
-    // Automatically set the newly created rectangle as active
-    setActiveRectId(newRectangle.id);
+    setCuboids(prev => [...prev, newCuboid]);
+    // Automatically set the newly created cuboid as active
+    setActiveCuboidId(newCuboid.id);
   };
 
-  const updateRectangle = (id: string, props: Partial<RectProps>) => {
-    setRectangles(prev => 
-      prev.map(rect => 
-        rect.id === id ? { ...rect, ...props } : rect
+  const updateCuboid = (id: string, props: Partial<CuboidProps>) => {
+    setCuboids(prev => 
+      prev.map(cuboid => 
+        cuboid.id === id ? { ...cuboid, ...props } : cuboid
       )
     );
   };
 
-  const deleteRectangle = (id: string) => {
-    setRectangles(prev => prev.filter(rect => rect.id !== id));
-    if (activeRectId === id) {
-      setActiveRectId(null);
+  const deleteCuboid = (id: string) => {
+    setCuboids(prev => prev.filter(cuboid => cuboid.id !== id));
+    if (activeCuboidId === id) {
+      setActiveCuboidId(null);
     }
   };
 
   return (
     <ModelContext.Provider 
       value={{ 
-        rectangles, 
-        activeRectId, 
-        setActiveRectId,
-        addRectangle, 
-        updateRectangle,
-        deleteRectangle,
-        isMaxRectangles 
+        cuboids, 
+        activeCuboidId, 
+        setActiveCuboidId,
+        addCuboid, 
+        updateCuboid,
+        deleteCuboid,
+        isMaxCuboids 
       }}
     >
       {children}

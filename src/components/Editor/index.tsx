@@ -13,7 +13,7 @@ interface EditorProps {
 
 export const Editor: React.FC<EditorProps> = ({ children }) => {
   const { setRotation } = useContext(RotationContext);
-  const { setActiveRectId } = useModel();
+  const { setActiveCuboidId } = useModel();
 
   // Handle drag rotation changes
   const handleRotationChange = useCallback((deltaX: number, deltaY: number) => {
@@ -31,13 +31,13 @@ export const Editor: React.FC<EditorProps> = ({ children }) => {
     const isFromToolbar = target.closest('[data-toolbar="true"]');
     if (isFromToolbar) return;
     
-    // Don't deselect if clicking on a rect (they handle their own selection)
-    const isFromRect = target.closest('[data-rect="true"]');
-    if (isFromRect) return;
+    // Don't deselect if clicking on a cuboid (they handle their own selection)
+    const isFromCuboid = target.closest('[data-cuboid="true"]');
+    if (isFromCuboid) return;
     
     // Only deselect on clean clicks (not after dragging)
-    setActiveRectId(null);
-  }, [setActiveRectId]);
+    setActiveCuboidId(null);
+  }, [setActiveCuboidId]);
 
   // Set up drag rotation
   const { isDragging, onMouseDown, onTouchStart } = useDragRotation({

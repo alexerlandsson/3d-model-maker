@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./Rect.module.scss";
+import styles from "./Cuboid.module.scss";
 import clsx from "clsx";
 
-export interface RectProps {
+export interface CuboidProps {
   width?: number;
   height?: number;
   depth?: number;
@@ -15,7 +15,7 @@ export interface RectProps {
   onClick?: () => void;
 }
 
-export const Rect: React.FC<RectProps> = ({
+export const Cuboid: React.FC<CuboidProps> = ({
   width,
   height,
   depth,
@@ -29,8 +29,8 @@ export const Rect: React.FC<RectProps> = ({
 }) => {
   return (
     <div
-      className={clsx(styles.rect, {
-        [styles.rectActive]: isActive,
+      className={clsx(styles.cuboid, {
+        [styles.cuboidActive]: isActive,
       })}
       style={
         {
@@ -44,7 +44,7 @@ export const Rect: React.FC<RectProps> = ({
           "--z-index": zIndex,
         } as React.CSSProperties
       }
-      data-rect="true"
+      data-cuboid="true"
       role={onClick ? "button" : undefined}
       aria-label={onClick ? "Edit cuboid" : undefined}
       onClick={onClick}

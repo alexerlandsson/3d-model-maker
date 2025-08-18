@@ -1,11 +1,11 @@
-import { Rect } from "@/components/Rect";
+import { Cuboid } from "@/components/Cuboid";
 import React from "react";
 
 export const Chicken: React.FC = () => {
   return (
     <>
       {/* Body */}
-      <Rect
+      <Cuboid
         width={6}
         height={13}
         depth={7}
@@ -16,7 +16,7 @@ export const Chicken: React.FC = () => {
       />
 
       {/* Back */}
-      <Rect
+      <Cuboid
         width={6}
         height={5}
         depth={3}
@@ -27,7 +27,7 @@ export const Chicken: React.FC = () => {
       />
 
       {/* Tail */}
-      <Rect
+      <Cuboid
         width={4}
         height={3}
         depth={1}
@@ -38,7 +38,7 @@ export const Chicken: React.FC = () => {
       />
 
       {/* Wing (Left) */}
-      <Rect
+      <Cuboid
         width={2}
         height={3}
         depth={6}
@@ -49,7 +49,7 @@ export const Chicken: React.FC = () => {
       />
 
       {/* Wing (Right) */}
-      <Rect
+      <Cuboid
         width={2}
         height={3}
         depth={6}
@@ -60,7 +60,7 @@ export const Chicken: React.FC = () => {
       />
 
       {/* Leg (Left) */}
-      <Rect
+      <Cuboid
         width={1}
         height={3}
         depth={1}
@@ -71,7 +71,7 @@ export const Chicken: React.FC = () => {
       />
 
       {/* Leg (Right) */}
-      <Rect
+      <Cuboid
         width={1}
         height={3}
         depth={1}
@@ -82,7 +82,7 @@ export const Chicken: React.FC = () => {
       />
 
       {/* Foot (Left) */}
-      <Rect
+      <Cuboid
         width={3}
         height={1}
         depth={3}
@@ -93,7 +93,7 @@ export const Chicken: React.FC = () => {
       />
 
       {/* Foot (Right) */}
-      <Rect
+      <Cuboid
         width={3}
         height={1}
         depth={3}
@@ -104,7 +104,7 @@ export const Chicken: React.FC = () => {
       />
 
       {/* Toe (Left, Left) */}
-      <Rect
+      <Cuboid
         width={1}
         height={1}
         depth={2}
@@ -115,7 +115,7 @@ export const Chicken: React.FC = () => {
       />
 
       {/* Toe (Left, Right) */}
-      <Rect
+      <Cuboid
         width={1}
         height={1}
         depth={2}
@@ -126,7 +126,7 @@ export const Chicken: React.FC = () => {
       />
 
       {/* Toe (Right, Left) */}
-      <Rect
+      <Cuboid
         width={1}
         height={1}
         depth={2}
@@ -137,7 +137,7 @@ export const Chicken: React.FC = () => {
       />
 
       {/* Toe (Right, Right) */}
-      <Rect
+      <Cuboid
         width={1}
         height={1}
         depth={2}
@@ -148,7 +148,7 @@ export const Chicken: React.FC = () => {
       />
 
       {/* Comb */}
-      <Rect
+      <Cuboid
         width={2}
         height={2}
         depth={4}
@@ -159,7 +159,7 @@ export const Chicken: React.FC = () => {
       />
 
       {/* Beak */}
-      <Rect
+      <Cuboid
         width={2}
         height={2}
         depth={3}
@@ -170,7 +170,7 @@ export const Chicken: React.FC = () => {
       />
 
       {/* Wattle */}
-      <Rect
+      <Cuboid
         width={2}
         height={2}
         depth={2}
@@ -181,7 +181,7 @@ export const Chicken: React.FC = () => {
       />
 
       {/* Eye (Left) */}
-      <Rect
+      <Cuboid
         width={0}
         height={1}
         depth={1}
@@ -193,7 +193,7 @@ export const Chicken: React.FC = () => {
       />
 
       {/* Eye (Right) */}
-      <Rect
+      <Cuboid
         width={0}
         height={1}
         depth={1}

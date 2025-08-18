@@ -47,7 +47,7 @@
   initial-value: 0;
 }
 
-.rect {
+.cuboid {
   --_w: calc(var(--w, 1) * var(--base-unit)); // Width
   --_h: calc(var(--h, 1) * var(--base-unit)); // Height
   --_d: calc(var(--d, 1) * var(--base-unit)); // Depth
@@ -80,7 +80,7 @@
   }
 }
 
-.rectActive {
+.cuboidActive {
   .face {
     border: size(2) solid pink;
   }

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a CSS voxel editor built with Next.js that allows users to create pixelated 3D models using HTML and CSS. The application renders 3D cubes (rectangles) that can be positioned, sized, and styled in a 3D space using pure CSS transforms.
+This is a CSS voxel editor built with Next.js that allows users to create pixelated 3D models using HTML and CSS. The application renders 3D cubes (cuboids) that can be positioned, sized, and styled in a 3D space using pure CSS transforms.
 
 ## Development Commands
 
@@ -24,7 +24,7 @@ This is a CSS voxel editor built with Next.js that allows users to create pixela
 The application uses React Context providers in a nested hierarchy for state management:
 - **RotationProvider** - Manages 3D scene rotation (X, Y, Z axes)
 - **ZoomProvider** - Handles zoom level for the 3D scene
-- **ModelProvider** - Core state for managing rectangles/cubes (add, edit, delete, selection)
+- **ModelProvider** - Core state for managing cuboids/cubes (add, edit, delete, selection)
 - **CanvasProvider** - Controls canvas display options (frame visibility)
 
 All providers are nested in `src/providers/index.tsx` and wrap the entire application.
@@ -39,20 +39,20 @@ The application follows a container/component pattern:
 
 **3D Rendering Components:**
 - `Canvas` - 3D container with optional wireframe boundaries
-- `Rect` - Individual 3D cube/rectangle with 6 CSS faces
-- `Model` - Renders collection of rectangles from ModelProvider state
+- `Cuboid` - Individual 3D cube/cuboid with 6 CSS faces
+- `Model` - Renders collection of cuboids from ModelProvider state
 
 **Control Components:**
 - `EditorControls` - Canvas controls (zoom, frame toggle)
-- `RectControls` - Active rectangle editing (position, size, color)
+- `CuboidControls` - Active cuboid editing (position, size, color)
 - `Rotation` - Scene rotation controls with sliders
 
 ### 3D Rendering System
 The app creates 3D effects using CSS transforms without WebGL:
-- Each `Rect` component renders 6 div faces (front, back, top, bottom, left, right)
+- Each `Cuboid` component renders 6 div faces (front, back, top, bottom, left, right)
 - 3D positioning uses CSS custom properties (`--x`, `--y`, `--z`, `--w`, `--h`, `--d`)
 - Scene rotation applied at container level using CSS transforms
-- Maximum of 99 rectangles enforced (MAX_RECTANGLES constant)
+- Maximum of 99 cuboids enforced (MAX_CUBOIDS constant)
 
 ### Styling Architecture
 - SCSS modules for component-scoped styles
@@ -62,8 +62,8 @@ The app creates 3D effects using CSS transforms without WebGL:
 - Cousine font loaded from Google Fonts
 
 ### Key State Patterns
-- Rectangle selection: `activeRectId` tracks currently selected rectangle
-- Rectangle management: CRUD operations through ModelProvider context
+- Cuboid selection: `activeCuboidId` tracks currently selected cuboid
+- Cuboid management: CRUD operations through ModelProvider context
 - 3D transformations: CSS custom properties updated via React state
 - Input controls: Range inputs bound to rotation/position state
 
@@ -78,7 +78,7 @@ The app creates 3D effects using CSS transforms without WebGL:
 
 ## Key Files to Understand
 
-- `src/providers/ModelProvider.tsx` - Core rectangle/cube state management
-- `src/components/Rect/index.tsx` - 3D cube rendering component
-- `src/containers/Model/index.tsx` - Rectangle collection renderer
+- `src/providers/ModelProvider.tsx` - Core cuboid/cube state management
+- `src/components/Cuboid/index.tsx` - 3D cube rendering component
+- `src/containers/Model/index.tsx` - Cuboid collection renderer
 - `src/app/page.tsx` - Main application layout and component composition
