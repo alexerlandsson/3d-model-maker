@@ -2,6 +2,7 @@
 
 import { CuboidProps } from '@/components/Cuboid';
 import React, { createContext, useContext, useState } from 'react';
+import defaultCuboids from '@/preset-models/retro-computer.json';
 
 // Maximum number of cuboids allowed
 export const MAX_CUBOIDS = 99;
@@ -32,7 +33,7 @@ export const useModel = (): ModelContextType => {
 };
 
 export const ModelProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [cuboids, setCuboids] = useState<Cuboid[]>([]);
+  const [cuboids, setCuboids] = useState<Cuboid[]>(defaultCuboids as Cuboid[]);
   const [activeCuboidId, setActiveCuboidId] = useState<string | null>(null);
   
   // Check if we've reached the maximum number of cuboids

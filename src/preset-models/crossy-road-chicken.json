@@ -1,0 +1,200 @@
+[
+    {
+        "id": "chicken-body",
+        "width": 6,
+        "height": 13,
+        "depth": 7,
+        "posX": 7,
+        "posY": 4,
+        "posZ": 6,
+        "zIndex": 0,
+        "color": "#fff"
+    },
+    {
+        "id": "chicken-back",
+        "width": 6,
+        "height": 5,
+        "depth": 3,
+        "posX": 7,
+        "posY": 4,
+        "posZ": 13,
+        "zIndex": 0,
+        "color": "#fff"
+    },
+    {
+        "id": "chicken-tail",
+        "width": 4,
+        "height": 3,
+        "depth": 1,
+        "posX": 8,
+        "posY": 4,
+        "posZ": 16,
+        "zIndex": 0,
+        "color": "#fff"
+    },
+    {
+        "id": "chicken-wing-left",
+        "width": 2,
+        "height": 3,
+        "depth": 6,
+        "posX": 13,
+        "posY": 5,
+        "posZ": 8,
+        "zIndex": 0,
+        "color": "#fff"
+    },
+    {
+        "id": "chicken-wing-right",
+        "width": 2,
+        "height": 3,
+        "depth": 6,
+        "posX": 5,
+        "posY": 5,
+        "posZ": 8,
+        "zIndex": 0,
+        "color": "#fff"
+    },
+    {
+        "id": "chicken-leg-left",
+        "width": 1,
+        "height": 3,
+        "depth": 1,
+        "posX": 12,
+        "posY": 1,
+        "posZ": 10,
+        "zIndex": 0,
+        "color": "#d8724f"
+    },
+    {
+        "id": "chicken-leg-right",
+        "width": 1,
+        "height": 3,
+        "depth": 1,
+        "posX": 7,
+        "posY": 1,
+        "posZ": 10,
+        "zIndex": 0,
+        "color": "#d8724f"
+    },
+    {
+        "id": "chicken-foot-left",
+        "width": 3,
+        "height": 1,
+        "depth": 3,
+        "posX": 11,
+        "posY": 0,
+        "posZ": 9,
+        "zIndex": 0,
+        "color": "#d8724f"
+    },
+    {
+        "id": "chicken-foot-right",
+        "width": 3,
+        "height": 1,
+        "depth": 3,
+        "posX": 6,
+        "posY": 0,
+        "posZ": 9,
+        "zIndex": 0,
+        "color": "#d8724f"
+    },
+    {
+        "id": "chicken-toe-left-left",
+        "width": 1,
+        "height": 1,
+        "depth": 2,
+        "posX": 13,
+        "posY": 0,
+        "posZ": 7,
+        "zIndex": 0,
+        "color": "#d8724f"
+    },
+    {
+        "id": "chicken-toe-left-right",
+        "width": 1,
+        "height": 1,
+        "depth": 2,
+        "posX": 11,
+        "posY": 0,
+        "posZ": 7,
+        "zIndex": 0,
+        "color": "#d8724f"
+    },
+    {
+        "id": "chicken-toe-right-left",
+        "width": 1,
+        "height": 1,
+        "depth": 2,
+        "posX": 8,
+        "posY": 0,
+        "posZ": 7,
+        "zIndex": 0,
+        "color": "#d8724f"
+    },
+    {
+        "id": "chicken-toe-right-right",
+        "width": 1,
+        "height": 1,
+        "depth": 2,
+        "posX": 6,
+        "posY": 0,
+        "posZ": 7,
+        "zIndex": 0,
+        "color": "#d8724f"
+    },
+    {
+        "id": "chicken-comb",
+        "width": 2,
+        "height": 2,
+        "depth": 4,
+        "posX": 9,
+        "posY": 17,
+        "posZ": 7,
+        "zIndex": 0,
+        "color": "#cc625e"
+    },
+    {
+        "id": "chicken-beak",
+        "width": 2,
+        "height": 2,
+        "depth": 3,
+        "posX": 9,
+        "posY": 13,
+        "posZ": 3,
+        "zIndex": 0,
+        "color": "#d8724f"
+    },
+    {
+        "id": "chicken-wattle",
+        "width": 2,
+        "height": 2,
+        "depth": 2,
+        "posX": 9,
+        "posY": 11,
+        "posZ": 4,
+        "zIndex": 0,
+        "color": "#cc625e"
+    },
+    {
+        "id": "chicken-eye-left",
+        "width": 0,
+        "height": 1,
+        "depth": 1,
+        "posX": 13,
+        "posY": 14,
+        "posZ": 8,
+        "zIndex": 1,
+        "color": "#000"
+    },
+    {
+        "id": "chicken-eye-right",
+        "width": 0,
+        "height": 1,
+        "depth": 1,
+        "posX": 7,
+        "posY": 14,
+        "posZ": 8,
+        "zIndex": 1,
+        "color": "#000"
+    }
+]

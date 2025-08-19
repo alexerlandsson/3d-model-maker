@@ -1,0 +1,200 @@
+[
+    {
+        "id": "1755628050387-j2j050jt0aj",
+        "width": 8,
+        "height": 1,
+        "depth": 8,
+        "posX": 6,
+        "posY": 7,
+        "posZ": 8,
+        "zIndex": 0,
+        "color": "#c9c7b1"
+    },
+    {
+        "id": "1755628053100-t44wtkcb15g",
+        "width": 10,
+        "height": 4,
+        "depth": 10,
+        "posX": 5,
+        "posY": 3,
+        "posZ": 7,
+        "zIndex": 0,
+        "color": "#e3e1cb"
+    },
+    {
+        "id": "1755628268528-tmd5gg7aydd",
+        "width": 10,
+        "height": 4,
+        "depth": 9,
+        "posX": 5,
+        "posY": 8,
+        "posZ": 8,
+        "zIndex": 0,
+        "color": "#e3e1cb"
+    },
+    {
+        "id": "1755628359275-g2cioa4x92a",
+        "width": 10,
+        "height": 5,
+        "depth": 4,
+        "posX": 5,
+        "posY": 12,
+        "posZ": 8,
+        "zIndex": 0,
+        "color": "#e3e1cb"
+    },
+    {
+        "id": "1755628396567-2lskn1ijelg",
+        "width": 8,
+        "height": 4,
+        "depth": 4,
+        "posX": 6,
+        "posY": 12,
+        "posZ": 12,
+        "zIndex": 0,
+        "color": "#e3e1cb"
+    },
+    {
+        "id": "1755628438987-o9r35c4n3wq",
+        "width": 8,
+        "height": 7,
+        "depth": 1,
+        "posX": 6,
+        "posY": 9,
+        "posZ": 8,
+        "zIndex": 2,
+        "color": "#485b63"
+    },
+    {
+        "id": "1755628489859-rrdwbsd0fe",
+        "width": 9,
+        "height": 1,
+        "depth": 3,
+        "posX": 4,
+        "posY": 3,
+        "posZ": 3,
+        "zIndex": 0,
+        "color": "#c9c7b1"
+    },
+    {
+        "id": "1755628516563-p5czd1uuq0c",
+        "width": 2,
+        "height": 1,
+        "depth": 3,
+        "posX": 14,
+        "posY": 3,
+        "posZ": 3,
+        "zIndex": 0,
+        "color": "#c9c7b1"
+    },
+    {
+        "id": "1755628542075-5506hpqm16t",
+        "width": 10,
+        "height": 1,
+        "depth": 1,
+        "posX": 5,
+        "posY": 8,
+        "posZ": 7,
+        "zIndex": 0,
+        "color": "#e3e1cb"
+    },
+    {
+        "id": "1755628558990-gn17lkzmmss",
+        "width": 10,
+        "height": 1,
+        "depth": 1,
+        "posX": 5,
+        "posY": 16,
+        "posZ": 7,
+        "zIndex": 0,
+        "color": "#e3e1cb"
+    },
+    {
+        "id": "1755628584431-mu1v05odg9a",
+        "width": 1,
+        "height": 7,
+        "depth": 1,
+        "posX": 5,
+        "posY": 9,
+        "posZ": 7,
+        "zIndex": 0,
+        "color": "#e3e1cb"
+    },
+    {
+        "id": "1755628605818-2gpimeyodd",
+        "width": 1,
+        "height": 7,
+        "depth": 1,
+        "posX": 14,
+        "posY": 9,
+        "posZ": 7,
+        "zIndex": 0,
+        "color": "#e3e1cb"
+    },
+    {
+        "id": "1755628633441-tjbfcvn7fx",
+        "width": 6,
+        "height": 1,
+        "depth": 1,
+        "posX": 6,
+        "posY": 5,
+        "posZ": 7,
+        "zIndex": 2,
+        "color": "#c9c7b1"
+    },
+    {
+        "id": "1755628953685-37ekgg5rgbv",
+        "width": 1,
+        "height": 1,
+        "depth": 1,
+        "posX": 13,
+        "posY": 5,
+        "posZ": 7,
+        "zIndex": 0,
+        "color": "#d11515"
+    },
+    {
+        "id": "1755629269740-ia56olbqf8",
+        "width": 1,
+        "height": 3,
+        "depth": 1,
+        "posX": 6,
+        "posY": 12,
+        "posZ": 13,
+        "zIndex": 2,
+        "color": "#c9c7b1"
+    },
+    {
+        "id": "1755629395290-9iu6ayttc5f",
+        "width": 1,
+        "height": 3,
+        "depth": 1,
+        "posX": 13,
+        "posY": 12,
+        "posZ": 13,
+        "zIndex": 2,
+        "color": "#c9c7b1"
+    },
+    {
+        "id": "1755629452740-uvnay37uk6",
+        "width": 2,
+        "height": 1,
+        "depth": 1,
+        "posX": 6,
+        "posY": 4,
+        "posZ": 16,
+        "zIndex": 2,
+        "color": "#121212"
+    },
+    {
+        "id": "1755629510015-bemmzglgxf8",
+        "width": 1,
+        "height": 1,
+        "depth": 1,
+        "posX": 9,
+        "posY": 4,
+        "posZ": 16,
+        "zIndex": 2,
+        "color": "#121212"
+    }
+]

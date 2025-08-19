@@ -54,8 +54,6 @@ export const CuboidControls: React.FC = () => {
     setIsDeleteDialogOpen(false);
   };
 
-  console.log(cuboids);
-
   return (
     <>
       <Toolbar
