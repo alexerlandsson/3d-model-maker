@@ -63,9 +63,9 @@
   height: var(--_h);
   transform: translate3d(
     var(--_x),
-    var(--_y),
+    calc(var(--_canvas-height) - var(--_h) - var(--_y)),
     calc(var(--_canvas-depth) * 0.5 - var(--_d) * 0.5 - var(--_z))
-  );
+  ); // Place the cuboid at closest bottom left corner
   z-index: var(--_z-index);
 
   &:hover {
