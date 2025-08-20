@@ -23,6 +23,7 @@
 }
 
 .button {
+  --_button-bg: var(--color-bg);
   --_size: #{size(44)};
 
   display: flex;
@@ -30,7 +31,7 @@
   justify-content: center;
   width: var(--_size);
   height: var(--_size);
-  background-color: var(--color-bg);
+  background-color: var(--_button-bg);
   color: var(--color-text);
   border: none;
   border-radius: none;
@@ -39,7 +40,7 @@
 
   &:enabled {
     &:hover {
-      background-color: var(--color-bg-hover);
+      --_button-bg: var(--color-bg-hover);
     }
   }
 
@@ -56,6 +57,6 @@
   }
 }
 
-.buttonCanvasOutlineActive {
-  color: var(--color-border-canvas);
+.buttonActive {
+  --_button-bg: var(--color-bg-active);
 }
