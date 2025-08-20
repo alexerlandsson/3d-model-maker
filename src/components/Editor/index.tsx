@@ -31,6 +31,10 @@ export const Editor: React.FC<EditorProps> = ({ children }) => {
     const isFromToolbar = target.closest('[data-toolbar="true"]');
     if (isFromToolbar) return;
     
+    // Don't deselect if clicking on dialog elements
+    const isFromDialog = target.closest('[data-dialog="true"]');
+    if (isFromDialog) return;
+    
     // Don't deselect if clicking on a cuboid (they handle their own selection)
     const isFromCuboid = target.closest('[data-cuboid="true"]');
     if (isFromCuboid) return;

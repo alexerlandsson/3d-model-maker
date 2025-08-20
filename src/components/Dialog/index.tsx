@@ -48,6 +48,7 @@ export const Dialog: React.FC<DialogProps> = ({
       onClose={onClose}
       aria-labelledby={`${id}-title`}
       aria-describedby={`${id}-body`}
+      data-dialog="true"
       tabIndex={-1}
     >
       <div className={styles.content}>
