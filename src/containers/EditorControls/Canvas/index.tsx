@@ -7,7 +7,7 @@ import clsx from "clsx";
 import { Cube, GearSix, ListBullets } from "@phosphor-icons/react";
 
 export const Canvas: React.FC = () => {
-  const { toggleFrame, showFrame } = useCanvas();
+  const { toggleFrame, showFrame, toggleCuboidList, showCuboidList } = useCanvas();
 
   return (
     <div className={styles.group} role="group" aria-label="Canvas controls">
@@ -23,10 +23,10 @@ export const Canvas: React.FC = () => {
       </button>
       <button
         className={clsx(styles.button, {
-          [styles.buttonActive]: showFrame,
+          [styles.buttonActive]: showCuboidList,
         })}
         title="Toggle list of cuboids"
-        onClick={toggleFrame}
+        onClick={toggleCuboidList}
       >
         <span className="sr-only">Toggle list of cuboids</span>
         <ListBullets weight="bold" className="icon" />

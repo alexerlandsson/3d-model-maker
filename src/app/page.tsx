@@ -1,3 +1,5 @@
+"use client";
+
 import { Editor } from "@/components/Editor";
 import { Rotation } from "@/containers/Rotation";
 import { EditorControls } from "@/containers/EditorControls";
@@ -9,14 +11,16 @@ import { Root } from "@/components/Root";
 import { Workspace } from "@/components/Workspace";
 import { Main } from "@/components/Main";
 import { CuboidList } from "@/containers/CuboidList";
+import { useCanvas } from "@/providers/CanvasProvider";
 
 export default function Home() {
+  const { showCuboidList } = useCanvas();
   return (
     <Root>
       <HeaderContainer />
       <Main>
         <Workspace>
-          <CuboidList />
+          {showCuboidList && <CuboidList />}
           <Editor>
             <SceneContainer>
               <CanvasContainer>
