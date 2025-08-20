@@ -21,7 +21,7 @@ export const useCanvas = (): CanvasContextType => {
 
 export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [showFrame, setShowFrame] = useState(true);
-  const [showCuboidList, setShowCuboidList] = useState(true);
+  const [showCuboidList, setShowCuboidList] = useState(false);
 
   const toggleFrame = () => {
     setShowFrame(prev => !prev);
