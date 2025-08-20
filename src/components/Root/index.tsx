@@ -6,7 +6,7 @@ interface RootProps {
 }
 
 export const Root = forwardRef<HTMLDivElement, RootProps>(({ children }, ref) => {
-  return <main ref={ref} className={styles.root}>{children}</main>;
+  return <div ref={ref} className={styles.root}>{children}</div>;
 });
 
 Root.displayName = 'Root';

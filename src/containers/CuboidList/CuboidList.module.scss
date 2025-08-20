@@ -1,0 +1,12 @@
+@use "../../styles/helpers" as *;
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: size(8);
+  list-style: none;
+  padding: size(16);
+  margin: 0;
+  height: 100%;
+  overflow-y: auto;
+}
