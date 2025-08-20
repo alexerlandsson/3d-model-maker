@@ -5,6 +5,8 @@ import React, { createContext, useContext, useState } from 'react';
 interface CanvasContextType {
   showFrame: boolean;
   toggleFrame: () => void;
+  showCuboidList: boolean;
+  toggleCuboidList: () => void;
 }
 
 export const CanvasContext = createContext<CanvasContextType | undefined>(undefined);
@@ -19,13 +21,18 @@ export const useCanvas = (): CanvasContextType => {
 
 export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [showFrame, setShowFrame] = useState(true);
+  const [showCuboidList, setShowCuboidList] = useState(true);
 
   const toggleFrame = () => {
     setShowFrame(prev => !prev);
   };
 
+  const toggleCuboidList = () => {
+    setShowCuboidList(prev => !prev);
+  };
+
   return (
-    <CanvasContext.Provider value={{ showFrame, toggleFrame }}>
+    <CanvasContext.Provider value={{ showFrame, toggleFrame, showCuboidList, toggleCuboidList }}>
       {children}
     </CanvasContext.Provider>
   );

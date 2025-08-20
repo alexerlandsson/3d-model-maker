@@ -1,0 +1,10 @@
+.main {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "workspace slider-right"
+    "slider-bottom slider-reset";
+  overflow: hidden;
+}

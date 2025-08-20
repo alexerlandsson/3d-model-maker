@@ -1,0 +1,60 @@
+@use "../../styles/helpers" as *;
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.item {
+  & + & {
+    border-top: 1px solid var(--color-border);
+  }
+}
+
+.button {
+  --_button-bg: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: size(16);
+  border: none;
+  background-color: var(--_button-bg);
+  color: var(--color-text);
+  font-size: var(--font-size-small);
+  text-align: left;
+  cursor: pointer;
+
+  &:enabled {
+    &:not(.buttonActive) {
+      &:hover {
+        --_button-bg: var(--color-bg-hover);
+      }
+    }
+  }
+}
+
+.buttonActive {
+  --_button-bg: var(--color-bg-active);
+}
+
+.buttonLabel {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin-block: 0;
+  font-size: var(--font-size-small);
+  padding: size(16);
+  text-align: center;
+}

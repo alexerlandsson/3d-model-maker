@@ -7,8 +7,6 @@ import { useModel } from '@/providers/ModelProvider';
 export const Model: React.FC = () => {
   const { cuboids, activeCuboidId, setActiveCuboidId } = useModel();
 
-  console.log(cuboids);
-
   return (
     <>
       {cuboids.map(cuboid => (
