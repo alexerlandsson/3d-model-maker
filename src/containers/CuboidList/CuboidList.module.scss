@@ -18,8 +18,8 @@
   --_button-bg: transparent;
 
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  flex-direction: column;
+  gap: size(2);
   width: 100%;
   padding: size(16);
   border: none;
@@ -42,10 +42,36 @@
   --_button-bg: var(--color-bg-active);
 }
 
+.buttonMeta {
+  display: flex;
+  align-items: center;
+  gap: size(6);
+}
+
+.buttonDimension {
+  display: flex;
+  align-items: center;
+
+  :global(.icon) {
+    flex-shrink: 0;
+    font-size: 0.7em;
+  }
+}
+
 .buttonLabel {
+  display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  opacity: 0.5;
+  font-size: var(--font-size-xsmall);
+}
+
+.buttonColor {
+  width: size(12);
+  height: size(12);
+  border: 1px solid var(--color-border);
+  background-color: var(--_color, transparent);
 }
 
 .empty {
