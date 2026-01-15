@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./CuboidControls.module.scss";
 import { Minus, Plus } from "@phosphor-icons/react";
+import { Tooltip } from "@/components/Tooltip";
 
 interface CuboidControlFieldsetProps {
   legend: string;
@@ -54,24 +55,26 @@ export const CuboidControlFieldset: React.FC<CuboidControlFieldsetProps> = ({
         onFocus={(e) => e.target.select()}
         className={styles.input}
       />
-      <button 
-        title={decreaseTitle} 
-        onClick={handleDecrement} 
-        className={styles.stepButton}
-        disabled={isAtMin}
-      >
-        <span className="sr-only">{decreaseTitle}</span>
-        <Minus weight="bold" className="icon" aria-hidden="true" />
-      </button>
-      <button 
-        title={increaseTitle} 
-        onClick={handleIncrement} 
-        className={styles.stepButton}
-        disabled={isAtMax}
-      >
-        <span className="sr-only">{increaseTitle}</span>
-        <Plus weight="bold" className="icon" aria-hidden="true" />
-      </button>
+      <Tooltip label={decreaseTitle} side="top">
+        <button
+          onClick={handleDecrement}
+          className={styles.stepButton}
+          disabled={isAtMin}
+        >
+          <span className="sr-only">{decreaseTitle}</span>
+          <Minus weight="bold" className="icon" aria-hidden="true" />
+        </button>
+      </Tooltip>
+      <Tooltip label={increaseTitle} side="top">
+        <button
+          onClick={handleIncrement}
+          className={styles.stepButton}
+          disabled={isAtMax}
+        >
+          <span className="sr-only">{increaseTitle}</span>
+          <Plus weight="bold" className="icon" aria-hidden="true" />
+        </button>
+      </Tooltip>
     </fieldset>
   );
 };
