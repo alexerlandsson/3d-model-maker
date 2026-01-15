@@ -19,8 +19,8 @@ export const Tooltip: React.FC<TooltipProps> = ({
   side = "top",
   sideOffset = 8,
 }) => (
-  <BaseTooltip.Provider>
-    <BaseTooltip.Root delay={delay}>
+  <BaseTooltip.Provider delay={delay}>
+    <BaseTooltip.Root>
       <BaseTooltip.Trigger render={children as React.ReactElement} />
       <BaseTooltip.Portal>
         <BaseTooltip.Positioner side={side} sideOffset={sideOffset}>
