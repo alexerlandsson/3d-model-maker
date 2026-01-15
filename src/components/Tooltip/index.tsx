@@ -23,11 +23,12 @@ export const Tooltip: React.FC<TooltipProps> = ({
     <BaseTooltip.Root>
       <BaseTooltip.Trigger render={children as React.ReactElement} />
       <BaseTooltip.Portal>
-        <BaseTooltip.Positioner side={side} sideOffset={sideOffset}>
-          <BaseTooltip.Popup className={styles.popup}>
-            {label}
-            <BaseTooltip.Arrow className={styles.arrow} />
-          </BaseTooltip.Popup>
+        <BaseTooltip.Positioner
+          side={side}
+          sideOffset={sideOffset}
+          className={styles.positioner}
+        >
+          <BaseTooltip.Popup className={styles.popup}>{label}</BaseTooltip.Popup>
         </BaseTooltip.Positioner>
       </BaseTooltip.Portal>
     </BaseTooltip.Root>

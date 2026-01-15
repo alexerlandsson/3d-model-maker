@@ -1,5 +1,9 @@
 @use "../../styles/helpers" as *;
 
+.positioner {
+  z-index: 1000;
+}
+
 .popup {
   background-color: var(--color-bg-active);
   border: 1px solid var(--color-border);
@@ -8,33 +12,4 @@
   font-size: var(--font-size-small);
   padding: size(6) size(10);
   white-space: nowrap;
-}
-
-.arrow {
-  width: size(10);
-  height: size(10);
-  transform: rotate(45deg);
-  background-color: var(--color-bg-active);
-  border: 1px solid var(--color-border);
-
-  // Hide part of the arrow that overlaps with the popup
-  &[data-side="top"] {
-    border-top: none;
-    border-left: none;
-  }
-
-  &[data-side="bottom"] {
-    border-bottom: none;
-    border-right: none;
-  }
-
-  &[data-side="left"] {
-    border-bottom: none;
-    border-left: none;
-  }
-
-  &[data-side="right"] {
-    border-top: none;
-    border-right: none;
-  }
 }
