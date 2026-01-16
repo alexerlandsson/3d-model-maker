@@ -5,6 +5,7 @@ import styles from "./Editor.module.scss";
 import { RotationContext } from "@/providers/RotationProvider";
 import { useDragRotation } from "@/hooks/useDragRotation";
 import { useModel } from "@/providers/ModelProvider";
+import { useCanvas } from "@/providers/CanvasProvider";
 import clsx from "clsx";
 
 interface EditorProps {
@@ -14,6 +15,7 @@ interface EditorProps {
 export const Editor: React.FC<EditorProps> = ({ children }) => {
   const { setRotation } = useContext(RotationContext);
   const { setActiveCuboidId } = useModel();
+  const { backgroundColor } = useCanvas();
 
   // Handle drag rotation changes
   const handleRotationChange = useCallback((deltaX: number, deltaY: number) => {
@@ -26,19 +28,19 @@ export const Editor: React.FC<EditorProps> = ({ children }) => {
   // Handle click outside of cuboids to deselect
   const handleEditorClick = useCallback((e: React.MouseEvent) => {
     const target = e.target as HTMLElement;
-    
+
     // Don't deselect if clicking on toolbar elements
     const isFromToolbar = target.closest('[data-toolbar="true"]');
     if (isFromToolbar) return;
-    
+
     // Don't deselect if clicking on dialog elements
     const isFromDialog = target.closest('[data-dialog="true"]');
     if (isFromDialog) return;
-    
+
     // Don't deselect if clicking on a cuboid (they handle their own selection)
     const isFromCuboid = target.closest('[data-cuboid="true"]');
     if (isFromCuboid) return;
-    
+
     // Only deselect on clean clicks (not after dragging)
     setActiveCuboidId(null);
   }, [setActiveCuboidId]);
@@ -55,6 +57,7 @@ export const Editor: React.FC<EditorProps> = ({ children }) => {
       className={clsx(styles.editor, {
         [styles.editorGrabbing]: isDragging,
       })}
+      style={{ backgroundColor }}
       data-editor="true"
       onMouseDown={onMouseDown}
       onTouchStart={onTouchStart}

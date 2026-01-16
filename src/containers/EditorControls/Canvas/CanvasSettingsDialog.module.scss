@@ -1,0 +1,61 @@
+@use "../../../styles/helpers" as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: size(8);
+}
+
+.fieldset {
+  --_input-size: #{size(32)};
+  --_input-bg: var(--color-input-bg);
+  --_input-color: var(--color-input-color);
+
+  display: grid;
+  grid-template-columns: size(100) 1fr;
+  align-items: center;
+  gap: size(8);
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.label {
+  font-size: var(--font-size-small);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.input {
+  width: 100%;
+  height: var(--_input-size);
+  padding: 0 size(8);
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background-color: var(--_input-bg);
+  color: var(--_input-color);
+
+  &:enabled {
+    &:hover {
+      --_input-bg: var(--color-input-bg-hover);
+    }
+  }
+}
+
+.inputColor {
+  composes: input;
+  padding: size(4);
+  cursor: pointer;
+}
+
+.separator {
+  display: block;
+  width: 100%;
+  height: size(1);
+  border: none;
+  background-color: var(--color-border);
+  margin: size(8) 0;
+}
