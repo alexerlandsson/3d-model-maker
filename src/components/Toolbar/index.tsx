@@ -5,6 +5,7 @@ import styles from "./Toolbar.module.scss";
 import { useDragWindow } from "@/hooks/useDragWindow";
 import clsx from "clsx";
 import { ArrowsInLineVertical, DotsSixVertical, X } from "@phosphor-icons/react";
+import { Tooltip } from "@/components/Tooltip";
 
 interface ToolbarProps {
   ariaLabel: string;
@@ -47,23 +48,25 @@ export const Toolbar: React.FC<ToolbarProps> = ({
           <span className={styles.titleText}>{title}</span>
         </span>
         <div className={styles.headerActions}>
-          <button
-            title="Minimize toolbar"
-            className={styles.headerButton}
-            onClick={() => setIsMinimized(!isMinimized)}
-          >
-            <ArrowsInLineVertical weight="bold" className="icon" aria-hidden="true" />
-            <span className="sr-only">Minimize toolbar</span>
-          </button>
-          {onClose && (
+          <Tooltip label="Minimize toolbar" side="bottom">
             <button
-              onClick={onClose}
-              title="Close toolbar"
               className={styles.headerButton}
+              onClick={() => setIsMinimized(!isMinimized)}
             >
-              <X weight="bold" className="icon" aria-hidden="true" />
-              <span className="sr-only">Close toolbar</span>
+              <ArrowsInLineVertical weight="bold" className="icon" aria-hidden="true" />
+              <span className="sr-only">Minimize toolbar</span>
             </button>
+          </Tooltip>
+          {onClose && (
+            <Tooltip label="Close toolbar" side="bottom">
+              <button
+                onClick={onClose}
+                className={styles.headerButton}
+              >
+                <X weight="bold" className="icon" aria-hidden="true" />
+                <span className="sr-only">Close toolbar</span>
+              </button>
+            </Tooltip>
           )}
         </div>
       </header>

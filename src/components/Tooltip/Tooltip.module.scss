@@ -1,0 +1,15 @@
+@use "../../styles/helpers" as *;
+
+.positioner {
+  z-index: 1000;
+}
+
+.popup {
+  background-color: var(--color-bg-active);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: var(--font-size-small);
+  padding: size(6) size(10);
+  white-space: nowrap;
+}
