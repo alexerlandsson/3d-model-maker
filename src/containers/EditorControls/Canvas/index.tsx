@@ -13,6 +13,10 @@ const DEFAULT_BACKGROUND_COLOR = "#121212";
 const MIN_DIMENSION = 1;
 const MAX_DIMENSION = 100;
 
+const clampDimension = (value: number): number => {
+  return Math.max(MIN_DIMENSION, Math.min(MAX_DIMENSION, value));
+};
+
 export const Canvas: React.FC = () => {
   const {
     toggleFrame,
@@ -28,10 +32,21 @@ export const Canvas: React.FC = () => {
   const [isSettingsDialogOpen, setIsSettingsDialogOpen] = useState(false);
   const [tempBackgroundColor, setTempBackgroundColor] = useState(backgroundColor);
   const [tempDimensions, setTempDimensions] = useState<CanvasDimensions>(dimensions);
+  // Store input values as strings to allow free typing
+  const [inputValues, setInputValues] = useState({
+    width: String(dimensions.width),
+    height: String(dimensions.height),
+    depth: String(dimensions.depth),
+  });
 
   const handleOpenSettings = () => {
     setTempBackgroundColor(backgroundColor);
     setTempDimensions(dimensions);
+    setInputValues({
+      width: String(dimensions.width),
+      height: String(dimensions.height),
+      depth: String(dimensions.depth),
+    });
     setIsSettingsDialogOpen(true);
   };
 
@@ -46,24 +61,31 @@ export const Canvas: React.FC = () => {
   };
 
   const handleDimensionChange = (field: keyof CanvasDimensions, value: string) => {
+    // Allow free typing - store the raw string value
+    setInputValues((prev) => ({ ...prev, [field]: value }));
+
+    // Only update the actual dimension if it's a valid number
     const numValue = parseInt(value, 10);
-    if (!isNaN(numValue) && numValue >= MIN_DIMENSION && numValue <= MAX_DIMENSION) {
-      setTempDimensions((prev) => ({ ...prev, [field]: numValue }));
+    if (!isNaN(numValue)) {
+      setTempDimensions((prev) => ({ ...prev, [field]: clampDimension(numValue) }));
     }
   };
 
+  const handleDimensionBlur = (field: keyof CanvasDimensions) => {
+    // On blur, sync the input value with the clamped dimension value
+    setInputValues((prev) => ({ ...prev, [field]: String(tempDimensions[field]) }));
+  };
+
   const handleDimensionIncrement = (field: keyof CanvasDimensions) => {
-    setTempDimensions((prev) => ({
-      ...prev,
-      [field]: Math.min(MAX_DIMENSION, prev[field] + 1),
-    }));
+    const newValue = Math.min(MAX_DIMENSION, tempDimensions[field] + 1);
+    setTempDimensions((prev) => ({ ...prev, [field]: newValue }));
+    setInputValues((prev) => ({ ...prev, [field]: String(newValue) }));
   };
 
   const handleDimensionDecrement = (field: keyof CanvasDimensions) => {
-    setTempDimensions((prev) => ({
-      ...prev,
-      [field]: Math.max(MIN_DIMENSION, prev[field] - 1),
-    }));
+    const newValue = Math.max(MIN_DIMENSION, tempDimensions[field] - 1);
+    setTempDimensions((prev) => ({ ...prev, [field]: newValue }));
+    setInputValues((prev) => ({ ...prev, [field]: String(newValue) }));
   };
 
   return (
@@ -144,8 +166,9 @@ export const Canvas: React.FC = () => {
             </span>
             <input
               type="number"
-              value={tempDimensions.width}
+              value={inputValues.width}
               onChange={(e) => handleDimensionChange("width", e.target.value)}
+              onBlur={() => handleDimensionBlur("width")}
               onFocus={(e) => e.target.select()}
               min={MIN_DIMENSION}
               max={MAX_DIMENSION}
@@ -182,8 +205,9 @@ export const Canvas: React.FC = () => {
             </span>
             <input
               type="number"
-              value={tempDimensions.height}
+              value={inputValues.height}
               onChange={(e) => handleDimensionChange("height", e.target.value)}
+              onBlur={() => handleDimensionBlur("height")}
               onFocus={(e) => e.target.select()}
               min={MIN_DIMENSION}
               max={MAX_DIMENSION}
@@ -220,8 +244,9 @@ export const Canvas: React.FC = () => {
             </span>
             <input
               type="number"
-              value={tempDimensions.depth}
+              value={inputValues.depth}
               onChange={(e) => handleDimensionChange("depth", e.target.value)}
+              onBlur={() => handleDimensionBlur("depth")}
               onFocus={(e) => e.target.select()}
               min={MIN_DIMENSION}
               max={MAX_DIMENSION}

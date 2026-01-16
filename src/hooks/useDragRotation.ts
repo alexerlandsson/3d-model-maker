@@ -81,11 +81,12 @@ export const useDragRotation = ({
   }, []);
 
   const onMouseDown = useCallback((e: React.MouseEvent) => {
-    // Check if the event originated from within a Toolbar
+    // Check if the event originated from within a Toolbar or Dialog
     const target = e.target as HTMLElement;
     const isFromToolbar = target.closest('[data-toolbar="true"]');
-    
-    if (isFromToolbar) return;
+    const isFromDialog = target.closest('[data-dialog="true"]');
+
+    if (isFromToolbar || isFromDialog) return;
 
     e.preventDefault();
     setIsDragging(true);
@@ -96,13 +97,14 @@ export const useDragRotation = ({
 
   const onTouchStart = useCallback((e: React.TouchEvent) => {
     if (e.touches.length !== 1) return;
-    
-    // Check if the event originated from within a Toolbar
+
+    // Check if the event originated from within a Toolbar or Dialog
     const target = e.target as HTMLElement;
     const isFromToolbar = target.closest('[data-toolbar="true"]');
-    
-    if (isFromToolbar) return;
-    
+    const isFromDialog = target.closest('[data-dialog="true"]');
+
+    if (isFromToolbar || isFromDialog) return;
+
     e.preventDefault();
     setIsDragging(true);
     const touch = e.touches[0];
