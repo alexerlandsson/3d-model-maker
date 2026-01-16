@@ -12,13 +12,18 @@
   --_input-color: var(--color-input-color);
 
   display: grid;
-  grid-template-columns: size(100) 1fr;
+  grid-template-columns: size(100) 1fr var(--_input-size) var(--_input-size);
   align-items: center;
   gap: size(8);
   width: 100%;
   padding: 0;
   margin: 0;
   border: none;
+}
+
+.fieldsetColor {
+  composes: fieldset;
+  grid-template-columns: size(100) 1fr var(--_input-size);
 }
 
 .label {
@@ -49,6 +54,31 @@
   composes: input;
   padding: size(4);
   cursor: pointer;
+}
+
+.stepButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--_input-size);
+  height: var(--_input-size);
+  background-color: var(--_input-bg);
+  color: var(--_input-color);
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: var(--font-size-small);
+
+  &:enabled {
+    &:hover {
+      --_input-bg: var(--color-input-bg-hover);
+    }
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.37;
+  }
 }
 
 .separator {
