@@ -25,10 +25,13 @@ export const Dialog: React.FC<DialogProps> = ({
   onConfirm,
 }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     if (isOpen) {
       dialogRef.current?.showModal();
+      // Focus the title to prevent auto-focus on first input (e.g., color picker on iOS)
+      titleRef.current?.focus();
     } else {
       dialogRef.current?.close();
     }
@@ -49,10 +52,16 @@ export const Dialog: React.FC<DialogProps> = ({
       aria-labelledby={`${id}-title`}
       aria-describedby={`${id}-body`}
       data-dialog="true"
-      tabIndex={-1}
     >
       <div className={styles.content}>
-        <h2 className={styles.title} id={`${id}-title`}>{title}</h2>
+        <h2
+          className={styles.title}
+          id={`${id}-title`}
+          ref={titleRef}
+          tabIndex={-1}
+        >
+          {title}
+        </h2>
         <div className={styles.body} id={`${id}-body`}>
           {children}
         </div>
