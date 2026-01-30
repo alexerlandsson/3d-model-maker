@@ -6,24 +6,23 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint"
   },
   "dependencies": {
     "@base-ui/react": "^1.0.0",
     "@phosphor-icons/react": "^2.1.10",
     "clsx": "^2.1.1",
-    "next": "15.4.10",
+    "next": "^16.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.2.4",
     "sass": "^1.97.3"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
     "@types/node": "^25",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.2.4",
+    "eslint-config-next": "^16.1.6",
     "typescript": "^5"
   }
 }
