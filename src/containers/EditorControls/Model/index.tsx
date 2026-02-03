@@ -1,15 +1,20 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "../EditorControls.module.scss";
-import { TrashSimple } from "@phosphor-icons/react";
+import { Export, TrashSimple } from "@phosphor-icons/react";
 import { Dialog } from "@/components/Dialog";
 import { useModel } from "@/providers/ModelProvider";
+import { useCanvas } from "@/providers/CanvasProvider";
+import { RotationContext } from "@/providers/RotationProvider";
 import { Tooltip } from "@/components/Tooltip";
+import { generateExportHtml, downloadHtmlFile } from "@/utils/exportModel";
 
 export const Model: React.FC = () => {
   const [isClearDialogOpen, setIsClearDialogOpen] = useState(false);
   const { clearAllCuboids, cuboids } = useModel();
+  const { backgroundColor, dimensions } = useCanvas();
+  const { rotation } = useContext(RotationContext);
 
   const handleClearModel = () => {
     setIsClearDialogOpen(true);
@@ -20,9 +25,29 @@ export const Model: React.FC = () => {
     setIsClearDialogOpen(false);
   };
 
+  const handleExport = () => {
+    const html = generateExportHtml({
+      cuboids,
+      dimensions,
+      backgroundColor,
+      rotation,
+    });
+    downloadHtmlFile(html, "css-voxel-model.html");
+  };
+
   return (
     <>
-      <div className={styles.group} role="group" aria-label="Canvas controls">
+      <div className={styles.group} role="group" aria-label="Model controls">
+        <Tooltip label="Export model" side="left">
+          <button
+            className={styles.button}
+            onClick={handleExport}
+            disabled={cuboids.length === 0}
+          >
+            <span className="sr-only">Export model</span>
+            <Export weight="bold" className="icon" />
+          </button>
+        </Tooltip>
         <Tooltip label="Clear model" side="left">
           <button
             className={styles.button}
