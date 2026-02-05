@@ -2,7 +2,7 @@
 
 import React, { useContext, useState } from "react";
 import styles from "../EditorControls.module.scss";
-import { Export, TrashSimple } from "@phosphor-icons/react";
+import { DownloadSimple, TrashSimple } from "@phosphor-icons/react";
 import { Dialog } from "@/components/Dialog";
 import { useModel } from "@/providers/ModelProvider";
 import { useCanvas } from "@/providers/CanvasProvider";
@@ -45,7 +45,7 @@ export const Model: React.FC = () => {
             disabled={cuboids.length === 0}
           >
             <span className="sr-only">Export model</span>
-            <Export weight="bold" className="icon" />
+            <DownloadSimple weight="bold" className="icon" />
           </button>
         </Tooltip>
         <Tooltip label="Clear model" side="left">
