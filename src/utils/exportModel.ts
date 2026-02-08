@@ -19,12 +19,7 @@ function generateCuboidHtml(cuboid: CuboidProps): string {
   const zIndex = cuboid.zIndex ?? 0;
 
   return `      <div class="cuboid" style="--w:${w};--h:${h};--d:${d};--x:${x};--y:${y};--z:${z};--c:${c};--z-index:${zIndex}">
-        <div class="face front"></div>
-        <div class="face back"></div>
-        <div class="face top"></div>
-        <div class="face bottom"></div>
-        <div class="face left"></div>
-        <div class="face right"></div>
+        <span class="cuboid__inner"></span>
       </div>`;
 }
 
@@ -48,17 +43,16 @@ export function generateExportHtml({
     body:active { cursor: grabbing; }
     .scene { --base-unit: 15px; --cw: ${dimensions.width}; --ch: ${dimensions.height}; --cd: ${dimensions.depth}; --_cw: calc(var(--cw) * var(--base-unit)); --_ch: calc(var(--ch) * var(--base-unit)); --_cd: calc(var(--cd) * var(--base-unit)); width: var(--_cw); height: var(--_ch); perspective: 500px; user-select: none; }
     .canvas { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; translate: 0 0 calc(var(--_cd) * -0.5); }
-    .cuboid { position: absolute; transform-style: preserve-3d; --_w: calc(var(--w, 1) * var(--base-unit)); --_h: calc(var(--h, 1) * var(--base-unit)); --_d: calc(var(--d, 1) * var(--base-unit)); --_x: calc(var(--x, 0) * var(--base-unit)); --_y: calc(var(--y, 0) * var(--base-unit)); --_z: calc(var(--z, 0) * var(--base-unit)); width: var(--_w); height: var(--_h); transform: translate3d(var(--_x), calc(var(--_ch) - var(--_h) - var(--_y)), calc(var(--_cd) * 0.5 - var(--_d) * 0.5 - var(--_z))); z-index: var(--z-index, 0); }
-    .face { position: absolute; background-color: var(--c, #ccc); }
-    .front, .back { width: var(--_w); height: var(--_h); }
-    .left, .right { width: var(--_d); height: var(--_h); left: calc(var(--_w) * 0.5 - var(--_d) * 0.5); }
-    .top, .bottom { width: var(--_w); height: var(--_d); top: calc(var(--_h) * 0.5 - var(--_d) * 0.5); }
-    .front { transform: translateZ(calc(var(--_d) * 0.5)); }
-    .back { transform: rotateY(180deg) translateZ(calc(var(--_d) * 0.5)); }
-    .left { transform: rotateY(-90deg) translateZ(calc(var(--_w) * 0.5)); }
-    .right { transform: rotateY(90deg) translateZ(calc(var(--_w) * 0.5)); }
-    .top { transform: rotateX(90deg) translateZ(calc(var(--_h) * 0.5)); }
-    .bottom { transform: rotateX(-90deg) translateZ(calc(var(--_h) * 0.5)); }
+    .cuboid, .cuboid__inner { position: absolute; transform-style: preserve-3d; width: var(--_w); height: var(--_h); background-color: var(--c, #ccc); }
+    .cuboid { --_w: calc(var(--w, 1) * var(--base-unit)); --_h: calc(var(--h, 1) * var(--base-unit)); --_d: calc(var(--d, 1) * var(--base-unit)); --_x: calc(var(--x, 0) * var(--base-unit)); --_y: calc(var(--y, 0) * var(--base-unit)); --_z: calc(var(--z, 0) * var(--base-unit)); transform: translate3d(var(--_x), calc(var(--_ch) - var(--_h) - var(--_y)), calc(var(--_cd) * 0.5 - var(--_z) - var(--_d))); z-index: var(--z-index, 0); }
+    .cuboid::before, .cuboid::after, .cuboid__inner::before, .cuboid__inner::after { content: ""; position: absolute; background-color: inherit; }
+    .cuboid::before, .cuboid::after { width: var(--_d); height: var(--_h); left: calc(var(--_w) * 0.5 - var(--_d) * 0.5); }
+    .cuboid::before { transform: rotateY(90deg) translateZ(calc(var(--_w) * 0.5)) translateX(-50%); }
+    .cuboid::after { transform: rotateY(-90deg) translateZ(calc(var(--_w) * 0.5)) translateX(50%); }
+    .cuboid__inner { transform: translateZ(var(--_d)); }
+    .cuboid__inner::before, .cuboid__inner::after { width: var(--_w); height: var(--_d); top: calc(var(--_h) * 0.5 - var(--_d) * 0.5); }
+    .cuboid__inner::before { transform: rotateX(90deg) translateZ(calc(var(--_h) * 0.5)) translateY(-50%); }
+    .cuboid__inner::after { transform: rotateX(-90deg) translateZ(calc(var(--_h) * 0.5)) translateY(50%); }
     .credit { position: fixed; bottom: 1rem; color: #666; font: 0.75rem/1.5 sans-serif; }
     .credit a { color: #888; cursor: pointer; }
   </style>

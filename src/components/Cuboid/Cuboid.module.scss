@@ -61,17 +61,54 @@
   transform-style: preserve-3d;
   width: var(--_w);
   height: var(--_h);
+  background-color: var(--_c);
   transform: translate3d(
     var(--_x),
     calc(var(--_canvas-height) - var(--_h) - var(--_y)),
-    calc(var(--_canvas-depth) * 0.5 - var(--_d) * 0.5 - var(--_z))
+    calc(var(--_canvas-depth) * 0.5 - var(--_z) - var(--_d))
   ); // Place the cuboid at closest bottom left corner
   z-index: var(--_z-index);
 
+  // Left & Right faces share dimensions and centering
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: inherit;
+    width: var(--_d);
+    height: var(--_h);
+    left: calc(var(--_w) * 0.5 - var(--_d) * 0.5);
+  }
+
+  // Left face
+  &::before {
+    transform: rotateY(90deg) translateZ(calc(var(--_w) * 0.5)) translateX(-50%);
+  }
+
+  // Right face
+  &::after {
+    transform: rotateY(-90deg) translateZ(calc(var(--_w) * 0.5)) translateX(50%);
+  }
+
   &:hover {
-    .face {
-      border: size(2) solid red;
+    background-color: color-mix(in srgb, var(--_c) 80%, transparent);
+    border: size(2) solid red;
+
+    &::before,
+    &::after {
       background-color: color-mix(in srgb, var(--_c) 80%, transparent);
+      border: size(2) solid red;
+    }
+
+    .cuboidInner {
+      background-color: color-mix(in srgb, var(--_c) 80%, transparent);
+      border: size(2) solid red;
+
+      &::before,
+      &::after {
+        background-color: color-mix(in srgb, var(--_c) 80%, transparent);
+        border: size(2) solid red;
+      }
     }
   }
 
@@ -81,56 +118,50 @@
 }
 
 .cuboidActive {
-  .face {
+  border: size(2) solid pink;
+
+  &::before,
+  &::after {
     border: size(2) solid pink;
+  }
+
+  .cuboidInner {
+    border: size(2) solid pink;
+
+    &::before,
+    &::after {
+      border: size(2) solid pink;
+    }
   }
 }
 
-.face {
+.cuboidInner {
+  display: block;
   position: absolute;
-  background-color: var(--_c);
-}
-
-.faceFront,
-.faceBack {
+  transform-style: inherit;
   width: var(--_w);
   height: var(--_h);
-}
+  background-color: inherit;
+  transform: translateZ(var(--_d));
 
-.faceLeft,
-.faceRight {
-  width: var(--_d);
-  height: var(--_h);
-  left: calc(var(--_w) * 0.5 - var(--_d) * 0.5);
-}
+  // Top & Bottom faces share dimensions and centering
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: inherit;
+    width: var(--_w);
+    height: var(--_d);
+    top: calc(var(--_h) * 0.5 - var(--_d) * 0.5);
+  }
 
-.faceTop,
-.faceBottom {
-  width: var(--_w);
-  height: var(--_d);
-  top: calc(var(--_h) * 0.5 - var(--_d) * 0.5);
-}
+  // Top face
+  &::before {
+    transform: rotateX(90deg) translateZ(calc(var(--_h) * 0.5)) translateY(-50%);
+  }
 
-.faceFront {
-  transform: rotateY(0deg) translateZ(calc(var(--_d) * 0.5));
-}
-
-.faceBack {
-  transform: rotateY(180deg) translateZ(calc(var(--_d) * 0.5));
-}
-
-.faceLeft {
-  transform: rotateY(-90deg) translateZ(calc(var(--_w) * 0.5));
-}
-
-.faceRight {
-  transform: rotateY(90deg) translateZ(calc(var(--_w) * 0.5));
-}
-
-.faceTop {
-  transform: rotateX(90deg) translateZ(calc(var(--_h) * 0.5));
-}
-
-.faceBottom {
-  transform: rotateX(-90deg) translateZ(calc(var(--_h) * 0.5));
+  // Bottom face
+  &::after {
+    transform: rotateX(-90deg) translateZ(calc(var(--_h) * 0.5)) translateY(50%);
+  }
 }

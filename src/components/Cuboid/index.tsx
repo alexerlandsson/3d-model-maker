@@ -49,12 +49,7 @@ export const Cuboid: React.FC<CuboidProps> = ({
       aria-label={onClick ? "Edit cuboid" : undefined}
       onClick={onClick}
     >
-      <div className={clsx(styles.face, styles.faceFront)}></div>
-      <div className={clsx(styles.face, styles.faceBack)}></div>
-      <div className={clsx(styles.face, styles.faceTop)}></div>
-      <div className={clsx(styles.face, styles.faceBottom)}></div>
-      <div className={clsx(styles.face, styles.faceLeft)}></div>
-      <div className={clsx(styles.face, styles.faceRight)}></div>
+      <span className={styles.cuboidInner}></span>
     </div>
   );
 };
